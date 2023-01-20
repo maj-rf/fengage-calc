@@ -19,6 +19,7 @@ export const StatTable = ({ data, title }: TableProps) => {
   ];
   return (
     <table>
+      <caption>{title}</caption>
       <thead>
         <tr>
           <th>Name</th>
