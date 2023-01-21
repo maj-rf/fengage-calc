@@ -86,6 +86,7 @@ export const classData: CharData[] = [
   { name: 'Sniper', growth: [15, 15, 0, 30, 10, 10, 10, 0, 0] },
   { name: 'Successeur', growth: [15, 20, 0, 10, 15, 10, 15, 0, 5] },
   { name: 'Swordmaster', growth: [10, 10, 0, 15, 20, 15, 0, 15, 0] },
+  { name: 'Thief', growth: [5, 10, 0, 20, 15, 15, 15, 5, 0] },
   { name: 'Tireurd’elite', growth: [10, 10, 0, 30, 10, 5, 15, 5, 0] },
   { name: 'Vidame', growth: [5, 10, 15, 5, 5, 20, 5, 15, 0] },
   { name: 'Warrior', growth: [25, 20, 0, 10, 15, 0, 10, 5, 5] },
