@@ -2,6 +2,7 @@
 import { StatTable } from '@/components/StatTable';
 import { characterData, classData } from '@/data';
 import { useState } from 'react';
+import { SelectDropdown } from '@/components/SelectDropdown';
 
 export default function Home() {
   const [currentChar, setCurrentChar] = useState(characterData[0]);
@@ -21,50 +22,35 @@ export default function Home() {
 
   return (
     <main>
-      <h1>FE: Engage Calculator</h1>
-      <select
-        name="currentChar"
-        id="char-select"
-        onChange={handleCharacter}
-        defaultValue="Alear"
-      >
-        <option value="">--Please choose a Character--</option>
-        {characterData.map((char) => {
-          return (
-            <option key={char.name} value={char.name}>
-              {char.name}
-            </option>
-          );
-        })}
-      </select>
-      <select
-        name="currentClass"
-        id="class-select"
-        onChange={handleClass}
-        defaultValue="Archer"
-      >
-        <option value="">--Please choose a Class--</option>
-        {classData.map((cls) => {
-          return (
-            <option key={cls.name} value={cls.name}>
-              {cls.name}
-            </option>
-          );
-        })}
-      </select>
-      <div>
-        <StatTable
-          data={[
-            currentChar,
-            currentClass,
-            { name: 'Total', growth: finalGrowth },
-          ]}
-          title="Computed Growth"
+      <div className="dropdowns">
+        <SelectDropdown
+          name="character"
+          handleChange={handleCharacter}
+          data={characterData}
+          value="Alear"
+        />
+        <SelectDropdown
+          name="class"
+          handleChange={handleClass}
+          data={classData}
+          value="Archer"
         />
       </div>
-      <div className="tables">
-        <StatTable data={characterData} title="Character Growths" />
-        <StatTable data={classData} title="Class Growths" />
+      <div className="info-tables">
+        <div>
+          <StatTable
+            data={[
+              currentChar,
+              currentClass,
+              { name: 'Total', growth: finalGrowth },
+            ]}
+            title="Computed Growth"
+          />
+        </div>
+        <div className="other-tables">
+          <StatTable data={characterData} title="Character Growths" />
+          <StatTable data={classData} title="Class Growths" />
+        </div>
       </div>
     </main>
   );

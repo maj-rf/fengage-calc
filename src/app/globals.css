@@ -115,7 +115,7 @@ body {
 }
 
 main {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 td {
@@ -127,20 +127,37 @@ tbody > tr:nth-child(odd) {
   background-color: rgb(57, 56, 56);
 }
 
-td {
-  width: 5%;
-}
-
 table {
   margin-top: 2rem;
 }
 
 select {
-  max-width: 30vw;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
 }
 
 caption {
   font-size: 1.2rem;
+}
+
+.dropdowns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-tables {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .info-tables {
+    flex-direction: column;
+  }
+
+  .dropdowns {
+    flex-direction: column;
+  }
 }
