@@ -20,7 +20,7 @@ export const SelectDropdown = ({
       onChange={handleChange}
       defaultValue={value}
     >
-      <option value="">--Please choose a Character--</option>
+      <option value="">--Please choose a {name}--</option>
       {data.map((char) => {
         return (
           <option key={char.name} value={char.name}>

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { SelectDropdown } from '@/components/SelectDropdown';
 
 export default function Home() {
-  const [currentChar, setCurrentChar] = useState(characterData[0]);
+  const [currentChar, setCurrentChar] = useState(characterData[1]);
   const [currentClass, setCurrentClass] = useState(classData[0]);
   const finalGrowth = currentChar.growth.map(
     (v, i) => v + currentClass.growth[i]
