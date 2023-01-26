@@ -5,9 +5,6 @@ export type CharData = {
   growth: Stats;
 };
 
-// +10 Jean [60, 30, 30, 45, 50, 30, 35, 35, 15]
-// +20 Jean  [70, 40, 40, 55, 60, 40, 45, 45, 25]
-
 export const characterData: CharData[] = [
   {
     name: 'Alcryst',
@@ -102,7 +99,7 @@ export const characterData: CharData[] = [
     growth: [65, 25, 25, 25, 40, 15, 25, 40, 10],
   },
   {
-    name: 'Louie',
+    name: 'Louis',
     growth: [75, 40, 0, 25, 25, 25, 50, 20, 15],
   },
   {
@@ -253,7 +250,7 @@ export const classData: CharData[] = [
     growth: [0, 10, 25, 0, 0, 10, 10, 20, 0],
   },
   {
-    name: 'Noble(C)',
+    name: 'Noble(Ca)',
     growth: [15, 15, 0, 5, 5, 15, 20, 5, 0],
   },
   {
@@ -281,7 +278,7 @@ export const classData: CharData[] = [
     growth: [10, 10, 0, 10, 5, 5, 20, 0, 0],
   },
   {
-    name: 'Sentinel(C)',
+    name: 'Sentinel(Ca)',
     growth: [10, 5, 0, 15, 15, 0, 5, 15, 0],
   },
   {

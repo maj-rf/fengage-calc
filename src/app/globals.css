@@ -151,59 +151,26 @@ select {
   padding: 0.5rem 1rem;
 }
 
-@media screen and (max-width: 800px) {
-  .dropdowns {
-    flex-direction: column;
-  }
+.star {
+  background-color: #243668;
 }
 
-/* main {
-  padding: 1rem;
-  width: 100vw;
-  text-align: center;
+tbody tr.total {
+  background-color: #eb444b;
 }
 
-td {
-  padding: 10px;
-  border: 1px solid white;
-}
-
-tbody > tr:nth-child(odd) {
-  background-color: rgb(57, 56, 56);
-}
-
-table {
-  margin-top: 2rem;
-}
-
-select {
-  padding: 0.5rem 1rem;
-  font-size: 1.1rem;
-  width: 50vw;
-  max-width: 300px;
-}
-
-caption {
-  font-size: 1.2rem;
-}
-
-.dropdowns {
+.selectors {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.info-tables {
-  display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
+.tooltip-list {
+  list-style: inside;
+}
 @media screen and (max-width: 800px) {
-  .info-tables {
-    flex-direction: column;
-  }
-
   .dropdowns {
     flex-direction: column;
   }
-} */
+}
