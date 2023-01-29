@@ -11,7 +11,11 @@ export const Info = () => {
           <li>Starsphere adds +15% across all stats.</li>
           <li>
             Class Types: Backup(B), Covert(C), Cavalry(Ca) Mystical(M),
-            Flying(F), Qi Adept(Q), Dragon(D)
+            Flying(F), Qi Adept(Q), Dragon(D), Armor(A)
+          </li>
+          <li>
+            You can sort Class and Character tables based on Stats. Just click
+            on the respective Stat.
           </li>
         </ul>
       }
