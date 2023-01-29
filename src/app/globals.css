@@ -129,6 +129,10 @@ table {
   margin-top: 1rem;
 }
 
+th {
+  cursor: pointer;
+}
+
 td {
   padding: 10px;
   border: 1px solid white;
@@ -168,6 +172,10 @@ tbody tr.total {
 
 .tooltip-list {
   list-style: inside;
+}
+
+.active {
+  color: lime;
 }
 @media screen and (max-width: 800px) {
   .dropdowns {

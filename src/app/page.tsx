@@ -2,8 +2,7 @@
 import { StatTable } from '@/components/StatTable';
 import { characterData, classData } from '@/data';
 import { useState } from 'react';
-import { SelectDropdown } from '@/components/SelectDropdown';
-import { Info } from '@/components/Info';
+import { Selectors } from '@/components/Selectors';
 
 export default function Home() {
   const [currentChar, setCurrentChar] = useState(characterData[1]);
@@ -31,39 +30,24 @@ export default function Home() {
 
   return (
     <main>
-      <div className="selectors">
-        <div className="dropdowns">
-          <SelectDropdown
-            name="character"
-            handleChange={handleCharacter}
-            data={characterData}
-            value="Alear"
-          />
-          <SelectDropdown
-            name="class"
-            handleChange={handleClass}
-            data={classData}
-            value="Archer"
-          />
-        </div>
-        <Info />
-      </div>
+      <Selectors
+        handleCharacter={handleCharacter}
+        handleClass={handleClass}
+        characterData={characterData}
+        classData={classData}
+      />
       <div className="info-tables">
-        <div>
-          <StatTable
-            data={[
-              currentChar,
-              selectedClass,
-              { name: 'Total', growth: finalGrowth },
-              { name: 'Starsphere', growth: starsphere },
-            ]}
-            title="Computed Growth"
-          />
-        </div>
-        <div className="other-tables">
-          <StatTable data={characterData} title="Character Growths" />
-          <StatTable data={classData} title="Class Growths" />
-        </div>
+        <StatTable
+          data={[
+            currentChar,
+            selectedClass,
+            { name: 'Total', growth: finalGrowth },
+            { name: 'Starsphere', growth: starsphere },
+          ]}
+          title="Computed Growth"
+        />
+        <StatTable data={characterData} title="Character Growths" />
+        <StatTable data={classData} title="Class Growths" />
       </div>
     </main>
   );
