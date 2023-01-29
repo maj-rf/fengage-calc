@@ -182,12 +182,20 @@ export const classData: CharData[] = [
     growth: [10, 5, 5, 20, 20, 0, 5, 20, 0],
   },
   {
+    name: 'Dancer',
+    growth: [5, 10, 0, 5, 15, 20, 10, 20, 0],
+  },
+  {
     name: 'Divine Dragon',
     growth: [10, 10, 0, 10, 15, 15, 10, 15, 5],
   },
   {
     name: 'Dragon Child',
     growth: [10, 10, 0, 10, 15, 10, 5, 10, 5],
+  },
+  {
+    name: 'Fell Child',
+    growth: [10, 10, 25, 10, 5, 0, 10, 25, 0],
   },
   {
     name: 'Fighter',
