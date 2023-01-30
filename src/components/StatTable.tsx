@@ -16,9 +16,9 @@ export const StatTable = ({ data, title }: TableProps) => {
     'MAG',
     'DEX',
     'SPD',
-    'LCK',
     'DEF',
     'RES',
+    'LCK',
     'BLD',
   ];
   const handleSort = (head: string) => {
