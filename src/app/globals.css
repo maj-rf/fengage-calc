@@ -165,8 +165,14 @@ tbody tr.total {
 
 .selectors {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+}
+
+.helpers {
+  display: flex;
   gap: 1rem;
 }
 
@@ -177,6 +183,7 @@ tbody tr.total {
 .active {
   color: lime;
 }
+
 @media screen and (max-width: 800px) {
   .dropdowns {
     flex-direction: column;

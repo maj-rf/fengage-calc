@@ -6,6 +6,7 @@ export const Info = () => {
       className="tooltip"
       content={
         <ul className="tooltip-list">
+          <li>Welcome to FEngage Stat Growth Calculator!</li>
           <li>Mix and match character classes to obtain overall growths.</li>
           <li>Jean has double class growths due to Expertise.</li>
           <li>Starsphere adds +15% across all stats.</li>
@@ -15,14 +16,14 @@ export const Info = () => {
           </li>
           <li>
             You can sort Class and Character tables based on Stats. Just click
-            on the respective Stat.
+            on the respective Stat header like STR or MAG.
           </li>
         </ul>
       }
-      placement="leftStart"
+      placement="bottomStart"
     >
       <Button auto flat>
-        Help
+        Instructions
       </Button>
     </Tooltip>
   );
