@@ -22,7 +22,6 @@ export const StatTable = ({ data, title }: TableProps) => {
     'BLD',
   ];
   const handleSort = (head: string) => {
-    console.log(head);
     const index = tableHeaders.findIndex((e) => e === head);
     const newData = sorted.sort((a, b) =>
       a.growth[index] > b.growth[index] ? -1 : 1

@@ -129,7 +129,7 @@ table {
   margin-top: 1rem;
 }
 
-th {
+th p {
   cursor: pointer;
 }
 
@@ -155,11 +155,11 @@ select {
   padding: 0.5rem 1rem;
 }
 
-.star {
+tbody tr.total {
   background-color: #243668;
 }
 
-tbody tr.total {
+tbody tr.caps {
   background-color: #eb444b;
 }
 

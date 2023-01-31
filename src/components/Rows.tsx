@@ -6,7 +6,13 @@ type RowsProps = {
 };
 export const Rows = ({ obj, tableHeaders }: RowsProps) => {
   const rowClass =
-    obj.name === 'Starsphere' ? 'star' : obj.name === 'Total' ? 'total' : '';
+    obj.name === 'Stat Caps'
+      ? 'caps'
+      : obj.name === 'Total%'
+      ? 'total'
+      : obj.name === 'Starsphere%'
+      ? 'total'
+      : '';
   return (
     <tr key={obj.name} className={rowClass}>
       <td>{obj.name}</td>

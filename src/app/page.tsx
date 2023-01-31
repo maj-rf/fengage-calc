@@ -18,6 +18,8 @@ export default function Home() {
     (v, i) => v + selectedClass.growth[i]
   );
   const starsphere = finalGrowth.map((v) => v + 15);
+  const maxStats = currentChar.mods.map((v, i) => v + selectedClass.mods[i]);
+
   const handleCharacter = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const char = characterData.find((obj) => obj.name === e.target.value);
     if (char) setCurrentChar(char);
@@ -41,8 +43,9 @@ export default function Home() {
           data={[
             currentChar,
             selectedClass,
-            { name: 'Total', growth: finalGrowth },
-            { name: 'Starsphere', growth: starsphere },
+            { name: 'Total%', growth: finalGrowth, mods: currentChar.mods },
+            { name: 'Starsphere%', growth: starsphere, mods: currentChar.mods },
+            { name: 'Stat Caps', growth: maxStats, mods: currentChar.mods },
           ]}
           title="Computed Growth"
         />
