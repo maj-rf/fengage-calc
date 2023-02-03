@@ -20,6 +20,7 @@ export const StatTable = ({ data, title }: TableProps) => {
     'RES',
     'LCK',
     'BLD',
+    'RTG',
   ];
   const handleSort = (head: string) => {
     const index = tableHeaders.findIndex((e) => e === head);

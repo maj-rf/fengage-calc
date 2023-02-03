@@ -125,8 +125,13 @@ main {
 }
 
 table {
+  display: block;
   width: 100%;
   margin-top: 1rem;
+}
+
+.hide {
+  display: none;
 }
 
 th p {
@@ -160,7 +165,7 @@ tbody tr.total {
 }
 
 tbody tr.caps {
-  background-color: #eb444b;
+  background-color: #ce353d;
 }
 
 .selectors {
