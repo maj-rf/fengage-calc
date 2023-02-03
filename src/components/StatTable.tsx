@@ -1,3 +1,4 @@
+'use client';
 import { CharData } from '@/data';
 import { Rows } from './Rows';
 import { useState } from 'react';

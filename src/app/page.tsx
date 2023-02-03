@@ -30,27 +30,23 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <div className="info-tables">
       <Selectors
         handleCharacter={handleCharacter}
         handleClass={handleClass}
         characterData={characterData}
         classData={classData}
       />
-      <div className="info-tables">
-        <StatTable
-          data={[
-            currentChar,
-            selectedClass,
-            { name: 'Total%', growth: finalGrowth, mods: currentChar.mods },
-            { name: 'Starsphere%', growth: starsphere, mods: currentChar.mods },
-            { name: 'Stat Caps', growth: maxStats, mods: currentChar.mods },
-          ]}
-          title="Computed Growth"
-        />
-        <StatTable data={characterData} title="Character Growths" />
-        <StatTable data={classData} title="Class Growths" />
-      </div>
-    </main>
+      <StatTable
+        data={[
+          currentChar,
+          selectedClass,
+          { name: 'Total%', growth: finalGrowth, mods: currentChar.mods },
+          { name: 'Starsphere%', growth: starsphere, mods: currentChar.mods },
+          { name: 'Stat Caps', growth: maxStats, mods: currentChar.mods },
+        ]}
+        title="Computed Growth"
+      />
+    </div>
   );
 }

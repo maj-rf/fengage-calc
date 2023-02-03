@@ -1,7 +1,5 @@
 import { CharData } from '@/data';
-import { Info } from './Info';
 import { SelectDropdown } from './SelectDropdown';
-import { DonateBtn } from './DonateBtn';
 type SelectorsProps = {
   handleCharacter: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   handleClass: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -17,10 +15,6 @@ export const Selectors = ({
 }: SelectorsProps) => {
   return (
     <div className="selectors">
-      <div className="helpers">
-        <Info />
-        <DonateBtn />
-      </div>
       <div className="dropdowns">
         <SelectDropdown
           name="character"

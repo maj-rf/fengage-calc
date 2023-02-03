@@ -11,6 +11,7 @@ export const Info = () => {
             Mix and match character & classes to obtain overall growths and stap
             caps.
           </li>
+          <li>Visit specific tables by clicking Characters and Classes.</li>
           <li>Jean has double class growths due to Expertise.</li>
           <li>Starsphere adds 15% across all stats.</li>
           <li>
