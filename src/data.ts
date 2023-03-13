@@ -428,6 +428,6 @@ export const classData: CharData[] = [
   {
     name: 'Wyvern Knight',
     growth: [20, 20, 0, 10, 5, 20, 5, 5, 5, 90],
-    mods: [68, 40, 37, 48, 49, 27, 35, 35, 14],
+    mods: [83, 46, 31, 43, 38, 35, 22, 25, 18],
   },
 ];
