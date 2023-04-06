@@ -8,7 +8,7 @@ export const Info = () => {
         <ul className="tooltip-list">
           <li>Welcome to FEngage Stat Growth Calculator!</li>
           <li>
-            Mix and match character & classes to obtain overall growths and stap
+            Mix and match character & classes to obtain overall growths and stat
             caps.
           </li>
           <li>Visit specific tables by clicking Characters and Classes.</li>
@@ -17,6 +17,10 @@ export const Info = () => {
           <li>
             Class Types: Backup(B), Covert(C), Cavalry(Ca) Mystical(M),
             Flying(F), Qi Adept(Q), Dragon(D), Armor(A)
+          </li>
+          <li>
+            Fell Child has 3 types: Default for Veyle, (N) for Nel, (R) for
+            Rafal.
           </li>
           <li>
             You can sort Class and Character tables based on Stats. Just click

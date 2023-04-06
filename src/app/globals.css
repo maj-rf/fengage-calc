@@ -144,6 +144,7 @@ nav {
   color: #0072f5;
   letter-spacing: 0;
   font-size: 0.8rem;
+  text-decoration: none;
 }
 
 .active.nav-links {

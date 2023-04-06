@@ -83,6 +83,11 @@ export const characterData: CharData[] = [
     mods: [0, 0, 1, -1, 2, -1, -1, 1, 0],
   },
   {
+    name: 'Gregory',
+    growth: [55, 30, 50, 20, 25, 35, 50, 25, 5, 295],
+    mods: [0, -2, 3, -2, -2, 0, 3, 2, 0],
+  },
+  {
     name: 'Goldmary',
     growth: [65, 30, 5, 25, 25, 55, 25, 25, 5, 260],
     mods: [0, 1, -3, 0, 0, 2, -1, 2, 0],
@@ -128,6 +133,11 @@ export const characterData: CharData[] = [
     mods: [0, 1, 0, -1, -2, 3, -2, 1, 0],
   },
   {
+    name: 'Madeline',
+    growth: [75, 50, 20, 15, 15, 55, 25, 25, 10, 290],
+    mods: [0, 3, 0, -2, -2, 3, -1, 0, 0],
+  },
+  {
     name: 'Mauvier',
     growth: [70, 35, 40, 40, 35, 50, 45, 15, 15, 345],
     mods: [0, 1, 2, 1, -2, 1, 1, -2, 0],
@@ -138,6 +148,11 @@ export const characterData: CharData[] = [
     mods: [0, -1, -1, 1, 2, -1, 0, 1, 0],
   },
   {
+    name: 'Nel',
+    growth: [55, 30, 25, 40, 45, 30, 35, 20, 10, 290],
+    mods: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  },
+  {
     name: 'Pandreo',
     growth: [60, 5, 30, 45, 45, 15, 55, 30, 15, 300],
     mods: [0, -3, 2, 0, -1, -2, 3, 2, 0],
@@ -146,6 +161,11 @@ export const characterData: CharData[] = [
     name: 'Panette',
     growth: [75, 45, 10, 40, 25, 30, 15, 20, 15, 275],
     mods: [0, 3, -1, 0, 0, 0, -1, 0, 0],
+  },
+  {
+    name: 'Rafal',
+    growth: [70, 40, 10, 40, 35, 45, 20, 10, 10, 280],
+    mods: [0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
   {
     name: 'Rosado',
@@ -186,6 +206,11 @@ export const characterData: CharData[] = [
     name: 'Zelkov',
     growth: [65, 35, 15, 40, 35, 35, 15, 25, 10, 275],
     mods: [0, 0, -1, 2, 0, 0, -1, 1, 0],
+  },
+  {
+    name: 'Zelestia',
+    growth: [60, 35, 35, 35, 50, 30, 35, 20, 5, 305],
+    mods: [0, 0, 1, 0, 2, 1, 1, -3, 0],
   },
 ];
 
@@ -246,9 +271,24 @@ export const classData: CharData[] = [
     mods: [68, 41, 25, 36, 43, 35, 25, 35, 13],
   },
   {
+    name: 'Enchanter',
+    growth: [5, 15, 15, 15, 10, 5, 5, 15, 5, 90],
+    mods: [53, 25, 25, 43, 39, 20, 22, 42, 11],
+  },
+  {
     name: 'Fell Child',
     growth: [10, 10, 25, 10, 5, 10, 25, 0, 0, 95],
     mods: [48, 35, 48, 36, 33, 25, 41, 30, 11],
+  },
+  {
+    name: 'Fell Child(N)',
+    growth: [10, 15, 10, 10, 15, 15, 15, 0, 5, 95],
+    mods: [65, 39, 30, 32, 45, 33, 31, 37, 13],
+  },
+  {
+    name: 'Fell Child(R)',
+    growth: [15, 20, 0, 5, 5, 20, 10, 0, 10, 85],
+    mods: [76, 46, 13, 30, 33, 42, 20, 19, 13],
   },
   {
     name: 'Flier',
@@ -311,6 +351,11 @@ export const classData: CharData[] = [
     mods: [43, 26, 40, 28, 30, 20, 40, 24, 11],
   },
   {
+    name: 'Mage Cannoneer',
+    growth: [15, 10, 0, 15, 5, 20, 5, 10, 10, 90],
+    mods: [73, 45, 23, 43, 23, 49, 24, 31, 18],
+  },
+  {
     name: 'Mage Knight',
     growth: [5, 5, 25, 0, 5, 10, 25, 5, 0, 80],
     mods: [47, 35, 40, 28, 32, 26, 40, 24, 12],
@@ -324,6 +369,11 @@ export const classData: CharData[] = [
     name: 'Martial Monk',
     growth: [0, 10, 25, 0, 0, 10, 20, 10, 0, 75],
     mods: [55, 28, 41, 26, 28, 20, 39, 29, 13],
+  },
+  {
+    name: 'Melusine',
+    growth: [10, 10, 10, 10, 15, 10, 10, 0, 5, 80],
+    mods: [75, 40, 39, 33, 35, 33, 36, 27, 12],
   },
   {
     name: 'Noble(Ca)',
