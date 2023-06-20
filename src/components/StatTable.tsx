@@ -1,60 +1,81 @@
 'use client';
-import { CharData } from '@/data';
-import { Rows } from './Rows';
-import { useState } from 'react';
-type TableProps = {
-  data: CharData[];
-  title: string;
-};
 
-export const StatTable = ({ data, title }: TableProps) => {
-  const [sorted, setSorted] = useState([...data]);
-  const [active, setActive] = useState('name');
-  const dataToShow = title === 'Computed Growth' ? data : sorted;
-  const tableHeaders = [
-    'HP',
-    'STR',
-    'MAG',
-    'DEX',
-    'SPD',
-    'DEF',
-    'RES',
-    'LCK',
-    'BLD',
-    'RTG',
+import {
+  useReactTable,
+  getCoreRowModel,
+  createColumnHelper,
+  flexRender,
+} from '@tanstack/react-table';
+import { CharData, characterData } from '@/data';
+import { useMemo } from 'react';
+
+const tableHeaders = [
+  'HP',
+  'STR',
+  'MAG',
+  'DEX',
+  'SPD',
+  'DEF',
+  'RES',
+  'LCK',
+  'BLD',
+  'RTG',
+];
+
+export const StatTable = () => {
+  const columnHelper = createColumnHelper<CharData>();
+  const columns = [
+    columnHelper.accessor('name', { header: 'Name' }),
+    ...tableHeaders.map((val, index) =>
+      columnHelper.accessor('growth', {
+        cell: (t) => t.getValue()[index],
+        header: () => <span>{val}</span>,
+      })
+    ),
   ];
-  const handleSort = (head: string) => {
-    const index = tableHeaders.findIndex((e) => e === head);
-    const newData = sorted.sort((a, b) =>
-      a.growth[index] > b.growth[index] ? -1 : 1
-    );
-    setSorted([...newData]);
-    setActive(head);
-  };
+
+  const data = useMemo(() => characterData, []);
+
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
 
   return (
-    <table>
-      <caption>{title}</caption>
-      <thead>
-        <tr>
-          <th>Name</th>
-          {tableHeaders.map((head) => (
-            <th
-              onClick={
-                title === 'Computed Growth' ? undefined : () => handleSort(head)
-              }
-              key={head}
-            >
-              <p className={active === head ? 'active' : ''}>{head}</p>
-            </th>
+    <section className="container mx-auto bg-slate-600 overflow-x-auto p-8">
+      <table className="w-full text-center">
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => {
+            return (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header, index) => (
+                  <th
+                    key={header.id + tableHeaders[index]}
+                    colSpan={header.colSpan}
+                  >
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </th>
+                ))}
+              </tr>
+            );
+          })}
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell, index) => (
+                <td key={cell.id + tableHeaders[index]}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        {dataToShow.map((obj) => (
-          <Rows key={obj.name} obj={obj} tableHeaders={tableHeaders} />
-        ))}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </section>
   );
 };

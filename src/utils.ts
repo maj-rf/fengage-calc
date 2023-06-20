@@ -1,4 +1,5 @@
-import { CharData } from '@/data';
+import { CharData } from './data';
+
 export function getSelectedClass(
   currentChar: CharData,
   currentClass: CharData
