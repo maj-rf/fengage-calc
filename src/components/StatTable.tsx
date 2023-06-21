@@ -28,12 +28,33 @@ export const StatTable = ({ initialData }: { initialData: CharData[] }) => {
   const columnHelper = createColumnHelper<CharData>();
   const columns = [
     columnHelper.accessor('name', { header: 'Name' }),
-    ...tableHeaders.map((val, index) =>
-      columnHelper.accessor('growth', {
-        cell: (t) => t.getValue()[index],
-        header: () => val,
-      })
-    ),
+    columnHelper.accessor('growth.HP', {
+      header: 'HP',
+    }),
+    columnHelper.accessor('growth.STR', {
+      header: 'STR',
+    }),
+    columnHelper.accessor('growth.MAG', {
+      header: 'MAG',
+    }),
+    columnHelper.accessor('growth.DEX', {
+      header: 'DEX',
+    }),
+    columnHelper.accessor('growth.SPD', {
+      header: 'SPD',
+    }),
+    columnHelper.accessor('growth.DEF', {
+      header: 'DEF',
+    }),
+    columnHelper.accessor('growth.LCK', {
+      header: 'LCK',
+    }),
+    columnHelper.accessor('growth.BLD', {
+      header: 'BLD',
+    }),
+    columnHelper.accessor('growth.RTG', {
+      header: 'RTG',
+    }),
   ];
 
   const data = useMemo(() => initialData, [initialData]);
