@@ -1,4 +1,4 @@
-type Stats = {
+export type Stats = {
   HP: number;
   STR: number;
   MAG: number;
@@ -8,10 +8,10 @@ type Stats = {
   RES: number;
   LCK: number;
   BLD: number;
-  RTG: number;
+  RTG: number | null;
 };
 
-type Mods = {
+export type Mods = {
   HP: number;
   STR: number;
   MAG: number;
