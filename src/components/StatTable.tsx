@@ -5,9 +5,11 @@ import {
   getCoreRowModel,
   createColumnHelper,
   flexRender,
+  getSortedRowModel,
+  type SortingState,
 } from '@tanstack/react-table';
-import { CharData, characterData } from '@/data';
-import { useMemo } from 'react';
+import { CharData } from '@/data';
+import { useMemo, useState } from 'react';
 
 const tableHeaders = [
   'HP',
@@ -22,60 +24,94 @@ const tableHeaders = [
   'RTG',
 ];
 
-export const StatTable = () => {
+export const StatTable = ({ initialData }: { initialData: CharData[] }) => {
   const columnHelper = createColumnHelper<CharData>();
   const columns = [
     columnHelper.accessor('name', { header: 'Name' }),
     ...tableHeaders.map((val, index) =>
       columnHelper.accessor('growth', {
         cell: (t) => t.getValue()[index],
-        header: () => <span>{val}</span>,
+        header: () => val,
       })
     ),
   ];
 
-  const data = useMemo(() => characterData, []);
+  const data = useMemo(() => initialData, [initialData]);
+  const [sorting, setSorting] = useState<SortingState>([]);
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    state: {
+      sorting: sorting,
+    },
+    onSortingChange: setSorting,
   });
 
   return (
-    <section className="container mx-auto bg-slate-600 overflow-x-auto p-8">
-      <table className="w-full text-center">
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => {
-            return (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header, index) => (
-                  <th
-                    key={header.id + tableHeaders[index]}
-                    colSpan={header.colSpan}
+    <div className="p-8">
+      <div className="max-w-5xl mx-auto overflow-x-auto shadow rounded border-b border-gray-200 relative">
+        <table className="min-w-full table-auto">
+          <thead className="bg-gray-800 text-white">
+            {table.getHeaderGroups().map((headerGroup) => {
+              return (
+                <tr key={headerGroup.id} className="text-left">
+                  {headerGroup.headers.map((header, index) => {
+                    return (
+                      <th
+                        className={
+                          'text-left py-3 px-2 uppercase font-semibold text-sm ' +
+                          (index === 0 ? 'sticky left-0 z-10 bg-gray-800' : '')
+                        }
+                        key={header.id + tableHeaders[index]}
+                      >
+                        {header.isPlaceholder ? null : (
+                          <div
+                            {...{
+                              className: header.column.getCanSort()
+                                ? 'cursor-pointer select-none'
+                                : '',
+                              onClick: header.column.getToggleSortingHandler(),
+                            }}
+                          >
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                            {{
+                              asc: ' 🔼',
+                              desc: ' 🔽',
+                            }[header.column.getIsSorted() as string] ?? null}
+                          </div>
+                        )}
+                      </th>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </thead>
+          <tbody className="bg-slate-200">
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id} className="relative">
+                {row.getVisibleCells().map((cell, index) => (
+                  <td
+                    key={cell.id + tableHeaders[index]}
+                    className={
+                      'px-2 py-3 ' +
+                      (index === 0 ? 'sticky left-0 z-10 bg-slate-200' : '')
+                    }
                   >
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                  </th>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
                 ))}
               </tr>
-            );
-          })}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell, index) => (
-                <td key={cell.id + tableHeaders[index]}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
