@@ -3,5 +3,10 @@ export default function layout({
 }: {
   children: React.ReactNode;
 }) {
-  return <section>{children}</section>;
+  return (
+    <section>
+      {/* <h1 className="text-center mt-8 text-2xl font-semibold">Characters</h1> */}
+      {children}
+    </section>
+  );
 }

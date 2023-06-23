@@ -1,10 +1,6 @@
-'use client';
-
 import Link from 'next/link';
 import { DonateBtn } from './DonateBtn';
-import { useState } from 'react';
 export const Navbar = () => {
-  const [visibility, setVisibility] = useState(false);
   return (
     <header className="bg-gray-800 p-3">
       <nav className="max-w-5xl mx-auto flex flex-wrap justify-between items-center text-white">

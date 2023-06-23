@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + ' text-clamp'}>
+      <body className={inter.className + ' text-clamp bg-slate-500'}>
         <Navbar />
         <main>{children}</main>
       </body>

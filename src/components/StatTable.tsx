@@ -73,7 +73,7 @@ export const StatTable = ({ initialData }: { initialData: CharData[] }) => {
 
   return (
     <div className="p-8">
-      <div className="max-w-5xl mx-auto overflow-x-auto shadow-xl rounded border-b border-gray-200 relative scroll-list">
+      <div className="max-w-5xl mx-auto overflow-x-auto shadow-xl rounded relative scroll-list">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-800 text-white">
             {table.getHeaderGroups().map((headerGroup) => {
@@ -83,8 +83,8 @@ export const StatTable = ({ initialData }: { initialData: CharData[] }) => {
                     return (
                       <th
                         className={
-                          'text-left py-3 px-2 uppercase font-semibold text-sm ' +
-                          (index === 0 ? 'sticky left-0 z-10 bg-gray-800' : '')
+                          'text-left py-3 px-2 uppercase font-semibold text-sm bg-black ' +
+                          (index === 0 ? 'sticky left-0' : '')
                         }
                         key={header.id + tableHeaders[index]}
                       >
@@ -116,13 +116,13 @@ export const StatTable = ({ initialData }: { initialData: CharData[] }) => {
           </thead>
           <tbody className="bg-slate-200">
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className="relative">
+              <tr key={row.id} className="relative group font-medium">
                 {row.getVisibleCells().map((cell, index) => (
                   <td
                     key={cell.id + tableHeaders[index]}
                     className={
-                      'px-2 py-3 ' +
-                      (index === 0 ? 'sticky left-0 z-10 bg-slate-200' : '')
+                      'px-2 py-3 bg-slate-200 group-hover:bg-blue-900 group-hover:text-white ' +
+                      (index === 0 ? 'sticky left-0 z-10' : '')
                     }
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
