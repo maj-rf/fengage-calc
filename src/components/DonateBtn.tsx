@@ -1,3 +1,4 @@
+'use client';
 import KofiButton from 'kofi-button';
 
 export const DonateBtn = () => {

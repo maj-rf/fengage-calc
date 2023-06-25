@@ -19,6 +19,7 @@ export const SelectDropdown = ({
       id={name + 'select'}
       onChange={handleChange}
       defaultValue={value}
+      className="w-full max-w-xs py-2 px-2 font-semibold rounded-xl bg-black text-white "
     >
       <option value="">--Please choose a {name}--</option>
       {data.map((char) => {
