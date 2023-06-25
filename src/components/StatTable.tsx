@@ -46,6 +46,9 @@ export const StatTable = ({ initialData }: { initialData: CharData[] }) => {
     columnHelper.accessor('growth.DEF', {
       header: 'DEF',
     }),
+    columnHelper.accessor('growth.RES', {
+      header: 'RES',
+    }),
     columnHelper.accessor('growth.LCK', {
       header: 'LCK',
     }),
