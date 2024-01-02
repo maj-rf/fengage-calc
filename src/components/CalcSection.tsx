@@ -10,6 +10,7 @@ import {
 } from '@/app/utils/utils';
 import { StatTable } from './stattable/StatTable';
 import { columns } from '@/components/stattable/columns';
+import WeaponsSection from './WeaponsSection';
 
 export default function CalcSection() {
   const [currentChar, setCurrentChar] = useState(characterData[1]);
@@ -30,13 +31,7 @@ export default function CalcSection() {
   };
 
   return (
-    <section className="flex w-full flex-col items-center gap-4">
-      <div className="mx-auto w-full max-w-5xl border">
-        <StatTable
-          columns={columns}
-          data={[currentChar, selectedClass, totalGrowth, starsphere, maxStats]}
-        />
-      </div>
+    <section className="flex w-full flex-col items-center gap-4 py-8">
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
         <SelectDropdown
           currentChar={currentChar}
@@ -49,6 +44,14 @@ export default function CalcSection() {
           handleChange={handleClass}
         />
       </div>
+      <div className="mx-auto w-full max-w-5xl border">
+        <StatTable
+          columns={columns}
+          data={[currentChar, selectedClass, totalGrowth, starsphere, maxStats]}
+        />
+      </div>
+
+      <WeaponsSection currentClass={currentClass} />
     </section>
   );
 }
