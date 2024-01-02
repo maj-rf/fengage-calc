@@ -11,18 +11,18 @@ export const Navbar = () => {
     <header className="bg-gray-800 p-3">
       <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between text-white">
         <h1>
-          <Link href="/" className="hover:text-light-red font-semibold">
+          <Link href="/" className="font-semibold hover:text-red-400">
             FEngage Calc
           </Link>
         </h1>
         <ul className="flex items-center justify-between gap-4">
           <li>
-            <Link href="/characters" className="hover:text-light-red">
+            <Link href="/characters" className="hover:text-red-400">
               Characters
             </Link>
           </li>
           <li>
-            <Link href="/classes" className="hover:text-light-red">
+            <Link href="/classes" className="hover:text-red-400">
               Classes
             </Link>
           </li>
