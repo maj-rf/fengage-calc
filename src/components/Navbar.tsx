@@ -1,15 +1,21 @@
 import Link from 'next/link';
-import { DonateBtn } from './DonateBtn';
+
+const navlinks = [
+  { label: 'Fengage Calc', url: '/' },
+  { label: 'Characters', url: 'characters' },
+  { label: 'Classes', url: 'classes' },
+];
+
 export const Navbar = () => {
   return (
     <header className="bg-gray-800 p-3">
-      <nav className="max-w-5xl mx-auto flex flex-wrap justify-between items-center text-white">
+      <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between text-white">
         <h1>
           <Link href="/" className="hover:text-light-red font-semibold">
             FEngage Calc
           </Link>
         </h1>
-        <ul className="flex justify-between items-center gap-4">
+        <ul className="flex items-center justify-between gap-4">
           <li>
             <Link href="/characters" className="hover:text-light-red">
               Characters
@@ -20,9 +26,9 @@ export const Navbar = () => {
               Classes
             </Link>
           </li>
-          <li>
+          {/* <li>
             <DonateBtn />
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>
