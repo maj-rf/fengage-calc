@@ -1,6 +1,7 @@
-import { StatTable } from '@/components/StatTable';
+import { StatTable } from '@/components/stattable/StatTable';
+import { columns } from '@/components/stattable/columns';
 import { classData } from '@/data';
 
 export default function ClassPage() {
-  return <StatTable initialData={classData} />;
+  return <StatTable columns={columns} data={classData} />;
 }

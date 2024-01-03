@@ -1,6 +1,6 @@
 # Fire Emblem Engage Stat Growth Calculator
 
-Version 2.0
+Version 3.0
 
 ## Features
 
@@ -13,11 +13,12 @@ Version 2.0
 ## Development
 
 - TypeScript
-- NextJS 13 w/ App Router
-- TanStack Table v8
+- NextJS 14 w/ App Router
+- TanStack Table
 
 ## Running Project Locally & Contributions
 
 1. Fork and clone the repository.
 2. `npm install` on project directory.
-3. Make changes and create a pull request.
+3. `npm run dev` to start local development.
+4. Make changes and create a pull request.

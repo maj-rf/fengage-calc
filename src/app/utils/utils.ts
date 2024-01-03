@@ -1,4 +1,4 @@
-import { CharData, Stats, Mods } from './data';
+import { CharData, Stats, Mods } from '@/data';
 
 export function getSelectedClass(name: string, currentClass: CharData) {
   const growth = {} as Stats;
@@ -21,7 +21,7 @@ export function getFinalGrowth(currentChar: CharData, selectedClass: CharData) {
   }
 
   return {
-    name: 'Total (%)',
+    name: 'Total',
     growth: { ...growth },
     mods: currentChar.mods,
   };
@@ -36,7 +36,7 @@ export function getStarsphere(total: CharData) {
         : total.growth[x as keyof Stats]! + 15;
   }
   return {
-    name: 'Starsphere (%)',
+    name: 'Starsphere',
     growth: { ...growth },
     mods: total.mods,
   };

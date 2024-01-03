@@ -23,11 +23,27 @@ export type Mods = {
   BLD: number;
 };
 
+export type Weapons =
+  | 'axe'
+  | 'bow'
+  | 'breath'
+  | 'bullet'
+  | 'dagger'
+  | 'fist'
+  | 'magic'
+  | 'rod'
+  | 'spear'
+  | 'sword';
+
 export type CharData = {
   name: string;
   growth: Stats;
   mods: Mods;
 };
+
+export interface ClassData extends CharData {
+  weapons: Weapons[] | Weapons[][];
+}
 export const characterData: CharData[] = [
   {
     name: 'Alcryst',
@@ -1097,7 +1113,7 @@ export const characterData: CharData[] = [
   },
 ];
 
-export const classData: CharData[] = [
+export const classData: ClassData[] = [
   {
     name: 'Archer',
     growth: {
@@ -1123,6 +1139,7 @@ export const classData: CharData[] = [
       LCK: 28,
       BLD: 14,
     },
+    weapons: ['bow'],
   },
   {
     name: 'Armor',
@@ -1149,6 +1166,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 20,
     },
+    weapons: [['axe'], ['spear'], ['sword']],
   },
   {
     name: 'Avenir',
@@ -1175,6 +1193,7 @@ export const classData: CharData[] = [
       LCK: 45,
       BLD: 16,
     },
+    weapons: ['sword', 'spear'],
   },
   {
     name: 'Axe Fighter',
@@ -1201,6 +1220,7 @@ export const classData: CharData[] = [
       LCK: 23,
       BLD: 20,
     },
+    weapons: ['axe'],
   },
   {
     name: 'Berserker',
@@ -1227,6 +1247,7 @@ export const classData: CharData[] = [
       LCK: 23,
       BLD: 24,
     },
+    weapons: ['axe'],
   },
   {
     name: 'Bow Knight',
@@ -1253,6 +1274,11 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 14,
     },
+    weapons: [
+      ['bow', 'axe'],
+      ['bow', 'spear'],
+      ['bow', 'sword'],
+    ],
   },
   {
     name: 'Cavalier',
@@ -1279,6 +1305,7 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 12,
     },
+    weapons: [['axe'], ['spear'], ['sword']],
   },
   {
     name: 'Cupido',
@@ -1305,6 +1332,7 @@ export const classData: CharData[] = [
       LCK: 33,
       BLD: 16,
     },
+    weapons: ['sword', 'bow'],
   },
   {
     name: 'Dancer',
@@ -1331,6 +1359,7 @@ export const classData: CharData[] = [
       LCK: 39,
       BLD: 15,
     },
+    weapons: ['fist'],
   },
   {
     name: 'Divine Dragon',
@@ -1357,6 +1386,7 @@ export const classData: CharData[] = [
       LCK: 35,
       BLD: 13,
     },
+    weapons: ['sword', 'fist'],
   },
   {
     name: 'Dragon Child',
@@ -1383,6 +1413,7 @@ export const classData: CharData[] = [
       LCK: 35,
       BLD: 13,
     },
+    weapons: ['sword'],
   },
   {
     name: 'Enchanter',
@@ -1409,6 +1440,7 @@ export const classData: CharData[] = [
       LCK: 42,
       BLD: 11,
     },
+    weapons: ['dagger', 'fist'],
   },
   {
     name: 'Fell Child',
@@ -1435,6 +1467,7 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 11,
     },
+    weapons: ['dagger', 'magic'],
   },
   {
     name: 'Fell Child(N)',
@@ -1461,6 +1494,7 @@ export const classData: CharData[] = [
       LCK: 37,
       BLD: 13,
     },
+    weapons: ['spear', 'breath'],
   },
   {
     name: 'Fell Child(R)',
@@ -1487,6 +1521,7 @@ export const classData: CharData[] = [
       LCK: 19,
       BLD: 13,
     },
+    weapons: ['axe', 'breath'],
   },
   {
     name: 'Flier',
@@ -1513,6 +1548,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 14,
     },
+    weapons: [['axe'], ['spear'], ['sword']],
   },
   {
     name: 'General',
@@ -1539,6 +1575,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 25,
     },
+    weapons: [['axe'], ['spear'], ['sword']],
   },
   {
     name: 'Great Knight',
@@ -1565,6 +1602,11 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 20,
     },
+    weapons: [
+      ['axe', 'sword'],
+      ['sword', 'spear'],
+      ['sword', 'axe'],
+    ],
   },
   {
     name: 'Griffin Knight',
@@ -1591,6 +1633,11 @@ export const classData: CharData[] = [
       LCK: 35,
       BLD: 14,
     },
+    weapons: [
+      ['axe', 'rod'],
+      ['spear', 'rod'],
+      ['sword', 'rod'],
+    ],
   },
   {
     name: 'Halberdier',
@@ -1617,6 +1664,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 15,
     },
+    weapons: ['spear'],
   },
   {
     name: 'Hero',
@@ -1643,6 +1691,10 @@ export const classData: CharData[] = [
       LCK: 33,
       BLD: 16,
     },
+    weapons: [
+      ['sword', 'spear'],
+      ['sword', 'axe'],
+    ],
   },
   {
     name: 'High Priest',
@@ -1669,6 +1721,7 @@ export const classData: CharData[] = [
       LCK: 38,
       BLD: 13,
     },
+    weapons: ['magic', 'rod', 'fist'],
   },
   {
     name: 'Lance Fighter',
@@ -1695,6 +1748,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 12,
     },
+    weapons: ['spear'],
   },
   {
     name: 'Lindwurm',
@@ -1721,6 +1775,7 @@ export const classData: CharData[] = [
       LCK: 20,
       BLD: 15,
     },
+    weapons: ['magic', 'rod'],
   },
   {
     name: 'Lord(B)',
@@ -1747,6 +1802,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 20,
     },
+    weapons: ['sword'],
   },
   {
     name: 'Lord(C)',
@@ -1773,6 +1829,7 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 15,
     },
+    weapons: ['bow'],
   },
   {
     name: 'Mage',
@@ -1799,6 +1856,7 @@ export const classData: CharData[] = [
       LCK: 24,
       BLD: 11,
     },
+    weapons: ['magic'],
   },
   {
     name: 'Mage Cannoneer',
@@ -1825,6 +1883,7 @@ export const classData: CharData[] = [
       LCK: 31,
       BLD: 18,
     },
+    weapons: ['bullet'],
   },
   {
     name: 'Mage Knight',
@@ -1851,6 +1910,11 @@ export const classData: CharData[] = [
       LCK: 24,
       BLD: 12,
     },
+    weapons: [
+      ['sword', 'magic'],
+      ['axe', 'magic'],
+      ['spear', 'magic'],
+    ],
   },
   {
     name: 'Martial Master',
@@ -1877,6 +1941,7 @@ export const classData: CharData[] = [
       LCK: 29,
       BLD: 15,
     },
+    weapons: ['rod', 'fist'],
   },
   {
     name: 'Martial Monk',
@@ -1903,6 +1968,7 @@ export const classData: CharData[] = [
       LCK: 29,
       BLD: 13,
     },
+    weapons: ['rod', 'fist'],
   },
   {
     name: 'Melusine',
@@ -1929,6 +1995,7 @@ export const classData: CharData[] = [
       LCK: 27,
       BLD: 12,
     },
+    weapons: ['dagger', 'magic'],
   },
   {
     name: 'Noble(Ca)',
@@ -1955,6 +2022,7 @@ export const classData: CharData[] = [
       LCK: 45,
       BLD: 16,
     },
+    weapons: ['spear'],
   },
   {
     name: 'Noble(M)',
@@ -1981,6 +2049,7 @@ export const classData: CharData[] = [
       LCK: 50,
       BLD: 11,
     },
+    weapons: ['sword', 'magic'],
   },
   {
     name: 'Paladin',
@@ -2007,6 +2076,7 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 16,
     },
+    weapons: [['axe'], ['spear'], ['sword']],
   },
   {
     name: 'Picket',
@@ -2033,6 +2103,7 @@ export const classData: CharData[] = [
       LCK: 37,
       BLD: 12,
     },
+    weapons: ['spear'],
   },
   {
     name: 'Royal Knight',
@@ -2059,6 +2130,7 @@ export const classData: CharData[] = [
       LCK: 32,
       BLD: 12,
     },
+    weapons: ['spear', 'rod'],
   },
   {
     name: 'Sage',
@@ -2085,6 +2157,7 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 11,
     },
+    weapons: ['magic', 'rod'],
   },
   {
     name: 'Sentinel(B)',
@@ -2111,6 +2184,7 @@ export const classData: CharData[] = [
       LCK: 37,
       BLD: 12,
     },
+    weapons: ['spear'],
   },
   {
     name: 'Sentinel(Ca)',
@@ -2137,6 +2211,7 @@ export const classData: CharData[] = [
       LCK: 33,
       BLD: 16,
     },
+    weapons: ['bow'],
   },
   {
     name: 'Sleipnir Rider',
@@ -2163,6 +2238,7 @@ export const classData: CharData[] = [
       LCK: 53,
       BLD: 11,
     },
+    weapons: ['magic', 'rod'],
   },
   {
     name: 'Sniper',
@@ -2189,6 +2265,7 @@ export const classData: CharData[] = [
       LCK: 28,
       BLD: 14,
     },
+    weapons: ['bow'],
   },
   {
     name: 'Successeur',
@@ -2215,6 +2292,7 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 20,
     },
+    weapons: ['sword', 'axe'],
   },
   {
     name: 'Sword Fighter',
@@ -2241,6 +2319,7 @@ export const classData: CharData[] = [
       LCK: 33,
       BLD: 12,
     },
+    weapons: ['sword'],
   },
   {
     name: 'Swordmaster',
@@ -2267,6 +2346,7 @@ export const classData: CharData[] = [
       LCK: 37,
       BLD: 12,
     },
+    weapons: ['sword'],
   },
   {
     name: 'Thief',
@@ -2293,9 +2373,10 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 13,
     },
+    weapons: ['dagger'],
   },
   {
-    name: 'Tireurd’elite',
+    name: 'Tireur d’elite',
     growth: {
       HP: 10,
       STR: 10,
@@ -2319,6 +2400,7 @@ export const classData: CharData[] = [
       LCK: 30,
       BLD: 15,
     },
+    weapons: ['bow'],
   },
   {
     name: 'Vidame',
@@ -2345,6 +2427,7 @@ export const classData: CharData[] = [
       LCK: 50,
       BLD: 11,
     },
+    weapons: ['sword', 'magic', 'rod'],
   },
   {
     name: 'Warrior',
@@ -2371,6 +2454,7 @@ export const classData: CharData[] = [
       LCK: 23,
       BLD: 20,
     },
+    weapons: ['axe', 'bow'],
   },
   {
     name: 'Wing Tamer',
@@ -2397,6 +2481,7 @@ export const classData: CharData[] = [
       LCK: 53,
       BLD: 11,
     },
+    weapons: ['magic', 'rod'],
   },
   {
     name: 'Wing Tamer(D)',
@@ -2423,6 +2508,7 @@ export const classData: CharData[] = [
       LCK: 20,
       BLD: 15,
     },
+    weapons: ['magic', 'rod'],
   },
   {
     name: 'Wolf Knight',
@@ -2449,6 +2535,11 @@ export const classData: CharData[] = [
       LCK: 34,
       BLD: 12,
     },
+    weapons: [
+      ['dagger', 'axe'],
+      ['dagger', 'spear'],
+      ['dagger', 'sword'],
+    ],
   },
   {
     name: 'Wyvern Knight',
@@ -2475,480 +2566,10 @@ export const classData: CharData[] = [
       LCK: 25,
       BLD: 18,
     },
+    weapons: [
+      ['axe', 'sword'],
+      ['sword', 'spear'],
+      ['sword', 'axe'],
+    ],
   },
 ];
-// export const characterData: CharData[] = [
-//   {
-//     name: 'Alcryst',
-//     growth: [65, 30, 10, 40, 45, 30, 20, 15, 10, 265],
-//     mods: [0, 1, -1, 3, 0, 1, -2, -1, 0],
-//   },
-//   {
-//     name: 'Alear',
-//     growth: [60, 35, 20, 45, 50, 40, 25, 25, 5, 305],
-//     mods: [0, 1, 0, 1, 1, 0, 0, 0, 0],
-//   },
-//   {
-//     name: 'Alfred',
-//     growth: [65, 40, 5, 35, 40, 40, 20, 40, 10, 295],
-//     mods: [0, 2, -1, 1, 0, 2, -2, -1, 0],
-//   },
-//   {
-//     name: 'Amber',
-//     growth: [65, 45, 0, 25, 30, 35, 5, 35, 15, 255],
-//     mods: [0, 2, -1, -1, -1, 1, -1, 1, 0],
-//   },
-//   {
-//     name: 'Anna',
-//     growth: [55, 15, 50, 50, 50, 20, 35, 45, 5, 325],
-//     mods: [0, 0, 1, 1, 1, -2, -1, 1, 0],
-//   },
-//   {
-//     name: 'Boucheron',
-//     growth: [85, 20, 0, 50, 45, 35, 20, 15, 20, 290],
-//     mods: [0, 1, 0, 2, 2, -2, 0, -2, 0],
-//   },
-//   {
-//     name: 'Bunet',
-//     growth: [65, 30, 10, 40, 35, 45, 25, 40, 10, 300],
-//     mods: [0, 1, -3, 1, 0, 2, -1, 1, 0],
-//   },
-//   {
-//     name: 'Celine',
-//     growth: [50, 35, 25, 30, 45, 30, 40, 50, 5, 310],
-//     mods: [0, -2, 2, -2, 1, -3, 1, 3, 0],
-//   },
-//   {
-//     name: 'Chloe',
-//     growth: [75, 25, 35, 40, 55, 30, 25, 25, 5, 315],
-//     mods: [0, -2, 1, 0, 3, -1, 0, 0, 0],
-//   },
-//   {
-//     name: 'Citrinne',
-//     growth: [45, 10, 40, 25, 30, 20, 40, 25, 5, 240],
-//     mods: [0, -1, 3, 0, -1, -2, 2, 0, 0],
-//   },
-//   {
-//     name: 'Clanne',
-//     growth: [40, 35, 10, 40, 50, 30, 25, 20, 5, 255],
-//     mods: [0, 1, -1, 2, 2, -2, -1, 0, 0],
-//   },
-//   {
-//     name: 'Diamant',
-//     growth: [75, 30, 15, 20, 40, 40, 25, 20, 15, 280],
-//     mods: [0, 2, -1, -1, 0, 2, -1, 0, 0],
-//   },
-//   {
-//     name: 'Etie',
-//     growth: [45, 40, 0, 25, 35, 25, 30, 25, 5, 230],
-//     mods: [0, 2, -2, 2, 0, 0, -1, -1, 0],
-//   },
-//   {
-//     name: 'Fogado',
-//     growth: [60, 30, 25, 30, 55, 30, 35, 25, 10, 300],
-//     mods: [0, -1, -1, 0, 3, -1, 1, 0, 0],
-//   },
-//   {
-//     name: 'Framme',
-//     growth: [55, 30, 25, 35, 55, 25, 30, 25, 0, 280],
-//     mods: [0, 0, 1, -1, 2, -1, -1, 1, 0],
-//   },
-//   {
-//     name: 'Gregory',
-//     growth: [55, 30, 50, 20, 25, 35, 50, 25, 5, 295],
-//     mods: [0, -2, 3, -2, -2, 0, 3, 2, 0],
-//   },
-//   {
-//     name: 'Goldmary',
-//     growth: [65, 30, 5, 25, 25, 55, 25, 25, 5, 260],
-//     mods: [0, 1, -3, 0, 0, 2, -1, 2, 0],
-//   },
-//   {
-//     name: 'Hortensia',
-//     growth: [40, 20, 20, 35, 50, 25, 55, 50, 0, 295],
-//     mods: [0, -2, 0, 0, 1, -3, 3, 2, 0],
-//   },
-//   {
-//     name: 'Ivy',
-//     growth: [55, 25, 30, 25, 40, 30, 35, 15, 10, 265],
-//     mods: [0, 0, 2, -2, 0, 2, 2, -3, 0],
-//   },
-//   {
-//     name: 'Jade',
-//     growth: [55, 35, 25, 35, 30, 40, 30, 20, 10, 280],
-//     mods: [0, 1, -1, 0, 0, 2, 0, -1, 0],
-//   },
-//   {
-//     name: 'Jean',
-//     growth: [50, 20, 20, 35, 40, 25, 20, 25, 5, 240],
-//     mods: [0, 0, 2, -1, -1, 0, 0, 1, 0],
-//   },
-//   {
-//     name: 'Kagetsu',
-//     growth: [60, 30, 15, 50, 50, 40, 25, 40, 10, 320],
-//     mods: [0, -1, -1, 2, 2, 0, -2, 1, 0],
-//   },
-//   {
-//     name: 'Lapis',
-//     growth: [55, 25, 20, 35, 55, 35, 30, 25, 5, 285],
-//     mods: [0, -2, -2, 2, 3, 0, 0, 0, 0],
-//   },
-//   {
-//     name: 'Lindon',
-//     growth: [65, 25, 25, 25, 40, 25, 40, 15, 10, 270],
-//     mods: [0, 0, 2, -1, 0, -2, 2, 0, 0],
-//   },
-//   {
-//     name: 'Louis',
-//     growth: [75, 40, 0, 25, 25, 50, 20, 25, 15, 275],
-//     mods: [0, 1, 0, -1, -2, 3, -2, 1, 0],
-//   },
-//   {
-//     name: 'Madeline',
-//     growth: [75, 50, 20, 15, 15, 55, 25, 25, 10, 290],
-//     mods: [0, 3, 0, -2, -2, 3, -1, 0, 0],
-//   },
-//   {
-//     name: 'Mauvier',
-//     growth: [70, 35, 40, 40, 35, 50, 45, 15, 15, 345],
-//     mods: [0, 1, 2, 1, -2, 1, 1, -2, 0],
-//   },
-//   {
-//     name: 'Merrin',
-//     growth: [55, 25, 25, 40, 50, 30, 30, 25, 10, 290],
-//     mods: [0, -1, -1, 1, 2, -1, 0, 1, 0],
-//   },
-//   {
-//     name: 'Nel',
-//     growth: [55, 30, 25, 40, 45, 30, 35, 20, 10, 290],
-//     mods: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-//   },
-//   {
-//     name: 'Pandreo',
-//     growth: [60, 5, 30, 45, 45, 15, 55, 30, 15, 300],
-//     mods: [0, -3, 2, 0, -1, -2, 3, 2, 0],
-//   },
-//   {
-//     name: 'Panette',
-//     growth: [75, 45, 10, 40, 25, 30, 15, 20, 15, 275],
-//     mods: [0, 3, -1, 0, 0, 0, -1, 0, 0],
-//   },
-//   {
-//     name: 'Rafal',
-//     growth: [70, 40, 10, 40, 35, 45, 20, 10, 10, 280],
-//     mods: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-//   },
-//   {
-//     name: 'Rosado',
-//     growth: [75, 45, 25, 40, 45, 30, 30, 20, 5, 315],
-//     mods: [0, 3, -2, 1, 0, 1, -2, 0, 0],
-//   },
-//   {
-//     name: 'Saphir',
-//     growth: [80, 35, 0, 25, 30, 30, 5, 20, 10, 235],
-//     mods: [0, 2, -2, 0, 1, 1, -2, 0, 0],
-//   },
-//   {
-//     name: 'Seadall',
-//     growth: [55, 25, 15, 25, 50, 25, 25, 35, 10, 265],
-//     mods: [0, 0, -2, -1, 2, 0, 0, 2, 0],
-//   },
-//   {
-//     name: 'Timerra',
-//     growth: [55, 25, 25, 45, 45, 30, 30, 30, 10, 295],
-//     mods: [0, -1, -1, 3, 0, 2, -3, 1, 0],
-//   },
-//   {
-//     name: 'Vander',
-//     growth: [60, 25, 10, 25, 35, 35, 20, 10, 5, 225],
-//     mods: [0, 1, -1, 1, -2, 3, -2, 0, 0],
-//   },
-//   {
-//     name: 'Veyle',
-//     growth: [40, 25, 45, 35, 30, 25, 35, 20, 0, 255],
-//     mods: [0, 0, 3, 0, -1, 0, 3, -2, 0],
-//   },
-//   {
-//     name: 'Yunaka',
-//     growth: [50, 35, 25, 40, 45, 15, 45, 25, 5, 285],
-//     mods: [0, -1, 0, 1, 2, -2, 2, -1, 0],
-//   },
-//   {
-//     name: 'Zelkov',
-//     growth: [65, 35, 15, 40, 35, 35, 15, 25, 10, 275],
-//     mods: [0, 0, -1, 2, 0, 0, -1, 1, 0],
-//   },
-//   {
-//     name: 'Zelestia',
-//     growth: [60, 35, 35, 35, 50, 30, 35, 20, 5, 305],
-//     mods: [0, 0, 1, 0, 2, 1, 1, -3, 0],
-//   },
-// ];
-
-// export const classData: CharData[] = [
-//   {
-//     name: 'Archer',
-//     growth: [10, 15, 0, 25, 10, 5, 0, 5, 0, 70],
-//     mods: [68, 38, 20, 45, 32, 23, 24, 28, 14],
-//   },
-//   {
-//     name: 'Armor',
-//     growth: [20, 15, 0, 10, 0, 30, 0, 0, 5, 80],
-//     mods: [75, 42, 16, 39, 17, 51, 16, 25, 20],
-//   },
-//   {
-//     name: 'Avenir',
-//     growth: [15, 15, 0, 5, 10, 25, 5, 20, 5, 100],
-//     mods: [71, 45, 20, 33, 35, 37, 21, 45, 16],
-//   },
-//   {
-//     name: 'Axe Fighter',
-//     growth: [25, 20, 0, 5, 10, 5, 0, 0, 5, 70],
-//     mods: [94, 46, 17, 23, 29, 20, 11, 23, 20],
-//   },
-//   {
-//     name: 'Berserker',
-//     growth: [30, 30, 0, 5, 10, 5, 0, 0, 10, 90],
-//     mods: [96, 49, 17, 23, 29, 20, 11, 23, 24],
-//   },
-//   {
-//     name: 'Bow Knight',
-//     growth: [10, 10, 0, 20, 20, 0, 15, 15, 0, 90],
-//     mods: [68, 38, 23, 45, 37, 23, 29, 30, 14],
-//   },
-//   {
-//     name: 'Cavalier',
-//     growth: [10, 10, 0, 10, 10, 10, 10, 10, 0, 70],
-//     mods: [69, 40, 21, 41, 37, 27, 29, 30, 12],
-//   },
-//   {
-//     name: 'Cupido',
-//     growth: [10, 5, 5, 20, 20, 5, 20, 0, 0, 85],
-//     mods: [67, 35, 28, 33, 49, 28, 31, 33, 16],
-//   },
-//   {
-//     name: 'Dancer',
-//     growth: [5, 10, 0, 5, 15, 10, 20, 20, 0, 85],
-//     mods: [64, 36, 31, 29, 43, 24, 26, 39, 15],
-//   },
-//   {
-//     name: 'Divine Dragon',
-//     growth: [10, 10, 0, 10, 15, 15, 15, 10, 5, 90],
-//     mods: [68, 41, 25, 36, 43, 35, 25, 35, 13],
-//   },
-//   {
-//     name: 'Dragon Child',
-//     growth: [10, 10, 0, 10, 15, 10, 10, 5, 5, 75],
-//     mods: [68, 41, 25, 36, 43, 35, 25, 35, 13],
-//   },
-//   {
-//     name: 'Enchanter',
-//     growth: [5, 15, 15, 15, 10, 5, 5, 15, 5, 90],
-//     mods: [53, 25, 25, 43, 39, 20, 22, 42, 11],
-//   },
-//   {
-//     name: 'Fell Child',
-//     growth: [10, 10, 25, 10, 5, 10, 25, 0, 0, 95],
-//     mods: [48, 35, 48, 36, 33, 25, 41, 30, 11],
-//   },
-//   {
-//     name: 'Fell Child(N)',
-//     growth: [10, 15, 10, 10, 15, 15, 15, 0, 5, 95],
-//     mods: [65, 39, 30, 32, 45, 33, 31, 37, 13],
-//   },
-//   {
-//     name: 'Fell Child(R)',
-//     growth: [15, 20, 0, 5, 5, 20, 10, 0, 10, 85],
-//     mods: [76, 46, 13, 30, 33, 42, 20, 19, 13],
-//   },
-//   {
-//     name: 'Flier',
-//     growth: [5, 10, 5, 10, 10, 0, 10, 10, 0, 60],
-//     mods: [68, 40, 31, 43, 38, 27, 22, 25, 14],
-//   },
-//   {
-//     name: 'General',
-//     growth: [25, 20, 0, 10, 0, 30, 0, 0, 10, 95],
-//     mods: [86, 47, 16, 39, 17, 55, 16, 25, 25],
-//   },
-//   {
-//     name: 'Great Knight',
-//     growth: [20, 15, 0, 15, 0, 25, 10, 5, 5, 95],
-//     mods: [75, 42, 19, 43, 25, 51, 22, 30, 20],
-//   },
-//   {
-//     name: 'Griffin Knight',
-//     growth: [0, 10, 15, 15, 20, 0, 15, 15, 0, 90],
-//     mods: [68, 40, 37, 48, 49, 27, 35, 35, 14],
-//   },
-//   {
-//     name: 'Halberdier',
-//     growth: [10, 15, 5, 20, 10, 15, 5, 5, 0, 85],
-//     mods: [76, 46, 29, 47, 36, 35, 25, 25, 15],
-//   },
-//   {
-//     name: 'Hero',
-//     growth: [15, 15, 0, 10, 15, 0, 10, 15, 0, 80],
-//     mods: [75, 45, 20, 37, 41, 34, 22, 33, 16],
-//   },
-//   {
-//     name: 'High Priest',
-//     growth: [0, 0, 25, 0, 5, 0, 30, 30, 0, 90],
-//     mods: [55, 28, 45, 31, 32, 20, 48, 38, 13],
-//   },
-//   {
-//     name: 'Lance Fighter',
-//     growth: [10, 10, 5, 20, 5, 10, 5, 0, 0, 65],
-//     mods: [69, 43, 29, 47, 36, 28, 25, 25, 12],
-//   },
-//   {
-//     name: 'Lindwurm',
-//     growth: [5, 0, 25, 5, 0, 15, 25, 0, 0, 75],
-//     mods: [60, 31, 40, 25, 34, 31, 40, 20, 15],
-//   },
-//   {
-//     name: 'Lord(B)',
-//     growth: [15, 20, 0, 10, 10, 10, 0, 5, 0, 70],
-//     mods: [77, 43, 23, 23, 38, 38, 20, 25, 20],
-//   },
-//   {
-//     name: 'Lord(C)',
-//     growth: [10, 10, 0, 25, 10, 10, 0, 5, 0, 70],
-//     mods: [68, 41, 20, 41, 40, 29, 19, 30, 15],
-//   },
-//   {
-//     name: 'Mage',
-//     growth: [0, 0, 25, 5, 0, 0, 25, 5, 0, 60],
-//     mods: [43, 26, 40, 28, 30, 20, 40, 24, 11],
-//   },
-//   {
-//     name: 'Mage Cannoneer',
-//     growth: [15, 10, 0, 15, 5, 20, 5, 10, 10, 90],
-//     mods: [73, 45, 23, 43, 23, 49, 24, 31, 18],
-//   },
-//   {
-//     name: 'Mage Knight',
-//     growth: [5, 5, 25, 0, 5, 10, 25, 5, 0, 80],
-//     mods: [47, 35, 40, 28, 32, 26, 40, 24, 12],
-//   },
-//   {
-//     name: 'Martial Master',
-//     growth: [5, 10, 20, 0, 0, 15, 25, 10, 0, 85],
-//     mods: [66, 38, 41, 26, 28, 27, 39, 29, 15],
-//   },
-//   {
-//     name: 'Martial Monk',
-//     growth: [0, 10, 25, 0, 0, 10, 20, 10, 0, 75],
-//     mods: [55, 28, 41, 26, 28, 20, 39, 29, 13],
-//   },
-//   {
-//     name: 'Melusine',
-//     growth: [10, 10, 10, 10, 15, 10, 10, 0, 5, 80],
-//     mods: [75, 40, 39, 33, 35, 33, 36, 27, 12],
-//   },
-//   {
-//     name: 'Noble(Ca)',
-//     growth: [15, 15, 0, 5, 5, 20, 5, 15, 0, 80],
-//     mods: [71, 45, 20, 33, 35, 37, 21, 45, 16],
-//   },
-//   {
-//     name: 'Noble(M)',
-//     growth: [0, 5, 10, 5, 5, 5, 10, 20, 0, 60],
-//     mods: [56, 38, 37, 29, 41, 27, 35, 50, 11],
-//   },
-//   {
-//     name: 'Paladin',
-//     growth: [15, 15, 0, 10, 15, 15, 15, 10, 0, 95],
-//     mods: [77, 45, 21, 45, 37, 35, 29, 30, 16],
-//   },
-//   {
-//     name: 'Picket',
-//     growth: [10, 15, 0, 10, 10, 20, 5, 5, 5, 80],
-//     mods: [63, 35, 27, 47, 41, 33, 26, 37, 12],
-//   },
-//   {
-//     name: 'Royal Knight',
-//     growth: [5, 10, 15, 15, 15, 5, 20, 10, 0, 95],
-//     mods: [69, 43, 39, 47, 40, 28, 36, 32, 12],
-//   },
-//   {
-//     name: 'Sage',
-//     growth: [0, 0, 30, 5, 0, 0, 30, 15, 0, 80],
-//     mods: [43, 26, 48, 34, 30, 20, 44, 30, 11],
-//   },
-//   {
-//     name: 'Sentinel(B)',
-//     growth: [10, 10, 0, 10, 5, 20, 0, 5, 0, 60],
-//     mods: [63, 35, 27, 47, 41, 33, 26, 37, 12],
-//   },
-//   {
-//     name: 'Sentinel(Ca)',
-//     growth: [10, 5, 0, 15, 15, 5, 15, 0, 0, 65],
-//     mods: [67, 35, 28, 33, 49, 28, 31, 33, 16],
-//   },
-//   {
-//     name: 'Sleipnir Rider',
-//     growth: [0, 0, 20, 15, 15, 0, 30, 15, 0, 95],
-//     mods: [47, 26, 39, 36, 45, 19, 51, 53, 11],
-//   },
-//   {
-//     name: 'Sniper',
-//     growth: [15, 15, 0, 30, 10, 10, 0, 10, 0, 90],
-//     mods: [68, 45, 20, 52, 32, 29, 24, 28, 14],
-//   },
-//   {
-//     name: 'Successeur',
-//     growth: [15, 20, 0, 10, 15, 15, 0, 10, 5, 90],
-//     mods: [77, 43, 23, 23, 38, 38, 20, 25, 20],
-//   },
-//   {
-//     name: 'Sword Fighter',
-//     growth: [10, 10, 0, 15, 20, 0, 15, 10, 0, 80],
-//     mods: [67, 40, 20, 37, 41, 27, 22, 33, 12],
-//   },
-//   {
-//     name: 'Swordmaster',
-//     growth: [10, 10, 0, 15, 20, 0, 15, 15, 0, 85],
-//     mods: [67, 40, 25, 44, 49, 27, 26, 37, 12],
-//   },
-//   {
-//     name: 'Thief',
-//     growth: [5, 10, 0, 20, 15, 15, 5, 15, 0, 85],
-//     mods: [60, 43, 22, 51, 42, 33, 23, 30, 13],
-//   },
-//   {
-//     name: 'Tireurd’elite',
-//     growth: [10, 10, 0, 30, 10, 15, 5, 5, 0, 85],
-//     mods: [68, 41, 20, 41, 40, 29, 19, 30, 15],
-//   },
-//   {
-//     name: 'Vidame',
-//     growth: [5, 10, 15, 5, 5, 5, 15, 20, 0, 80],
-//     mods: [56, 38, 37, 29, 41, 27, 35, 50, 11],
-//   },
-//   {
-//     name: 'Warrior',
-//     growth: [25, 20, 0, 10, 15, 10, 5, 0, 5, 90],
-//     mods: [94, 46, 20, 30, 33, 27, 18, 23, 20],
-//   },
-//   {
-//     name: 'Wing Tamer',
-//     growth: [0, 0, 15, 10, 10, 0, 25, 10, 0, 70],
-//     mods: [47, 26, 39, 36, 45, 19, 51, 53, 11],
-//   },
-//   {
-//     name: 'Wing Tamer(D)',
-//     growth: [5, 0, 20, 0, 0, 10, 20, 0, 0, 55],
-//     mods: [60, 31, 40, 25, 34, 31, 40, 20, 15],
-//   },
-//   {
-//     name: 'Wolf Knight',
-//     growth: [10, 5, 0, 15, 20, 5, 20, 20, 0, 95],
-//     mods: [69, 40, 26, 41, 45, 27, 33, 34, 12],
-//   },
-//   {
-//     name: 'Wyvern Knight',
-//     growth: [20, 20, 0, 10, 5, 20, 5, 5, 5, 90],
-//     mods: [83, 46, 31, 43, 38, 35, 22, 25, 18],
-//   },
-// ];

@@ -1,34 +1,46 @@
+'use client';
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+
 import { CharData } from '@/data';
 
-type DropdownProps = {
-  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  name: string;
-  data: CharData[];
-  value: string;
-};
-
 export const SelectDropdown = ({
-  name,
-  handleChange,
+  currentChar,
   data,
-  value,
-}: DropdownProps) => {
+  handleChange,
+  title,
+}: {
+  currentChar: CharData;
+  data: CharData[];
+  handleChange: (value: string) => void;
+  title: 'Character' | 'Class';
+}) => {
   return (
-    <select
-      name={name}
-      id={name + 'select'}
-      onChange={handleChange}
-      defaultValue={value}
-      className="w-full max-w-xs py-2 px-2 font-semibold rounded-xl bg-black text-white "
+    <Select
+      defaultValue={currentChar.name}
+      onValueChange={(value) => handleChange(value)}
     >
-      <option value="">--Please choose a {name}--</option>
-      {data.map((char) => {
-        return (
-          <option key={char.name} value={char.name}>
-            {char.name}
-          </option>
-        );
-      })}
-    </select>
+      <SelectTrigger className="w-[160px] max-w-full">
+        <SelectValue placeholder={`Select ${title}`} />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>{`${title}`}</SelectLabel>
+          {data.map((char) => (
+            <SelectItem key={char.name} value={char.name}>
+              {char.name}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 };

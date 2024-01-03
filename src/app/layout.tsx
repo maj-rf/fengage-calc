@@ -1,13 +1,14 @@
-import { Navbar } from '@/components/Navbar';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { Inter, Manrope } from 'next/font/google';
+import { Navbar } from '@/components/Navbar';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
-const manrope = Manrope({ subsets: ['latin'] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'FEngage Calc',
-  description: 'Stat Growth Calculator for Fire Emblem: Engage',
+  description: 'Compute your Stat Growths!',
 };
 
 export default function RootLayout({
@@ -17,14 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={
-          manrope.className +
-          ' text-clamp min-h-screen bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900'
-        }
-      >
+      <body className={cn(inter.className, 'min-h-screen', 'bg-sommie')}>
         <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
