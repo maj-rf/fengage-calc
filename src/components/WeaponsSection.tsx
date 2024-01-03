@@ -33,7 +33,7 @@ export default function WeaponsSection({
 }) {
   if (isWeapons2DArray(currentClass.weapons)) {
     return (
-      <div className="flex gap-2">
+      <div className="flex w-full items-center justify-center gap-2">
         {currentClass.weapons.map((arr, idx) => {
           return (
             <div
@@ -49,7 +49,9 @@ export default function WeaponsSection({
                   />
                 );
               })}
-              {currentClass.weapons.length !== idx + 1 ? <p>or</p> : null}
+              {currentClass.weapons.length !== idx + 1 ? (
+                <span className="border-2 border-r border-muted-foreground"></span>
+              ) : null}
             </div>
           );
         })}
@@ -57,7 +59,7 @@ export default function WeaponsSection({
     );
   }
   return (
-    <div className="flex gap-2">
+    <div className="flex w-full items-center justify-center gap-2">
       {currentClass.weapons.map((weapon, index) => {
         return (
           <WeaponImage

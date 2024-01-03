@@ -9,7 +9,7 @@ import {
   getMaxStats,
 } from '@/app/utils/utils';
 import { StatTable } from './stattable/StatTable';
-import { columns } from '@/components/stattable/columns';
+import { cols } from '@/components/stattable/columns';
 import WeaponsSection from './WeaponsSection';
 
 export default function CalcSection() {
@@ -31,27 +31,26 @@ export default function CalcSection() {
   };
 
   return (
-    <section className="flex w-full flex-col items-center gap-4 py-8">
-      <div className="mx-auto flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
+    <section className="space-y-4 py-8">
+      <div className="mx-auto flex w-full flex-row items-center justify-center gap-2">
         <SelectDropdown
           currentChar={currentChar}
           data={characterData}
           handleChange={handleCharacter}
+          title="Character"
         />
         <SelectDropdown
           currentChar={currentClass}
           data={classData}
           handleChange={handleClass}
+          title="Class"
         />
       </div>
-      <div className="mx-auto w-full max-w-5xl border">
-        <StatTable
-          columns={columns}
-          data={[currentChar, selectedClass, totalGrowth, starsphere, maxStats]}
-        />
-      </div>
-
       <WeaponsSection currentClass={currentClass} />
+      <StatTable
+        columns={cols}
+        data={[currentChar, selectedClass, totalGrowth, starsphere, maxStats]}
+      />
     </section>
   );
 }

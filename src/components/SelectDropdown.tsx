@@ -16,22 +16,24 @@ export const SelectDropdown = ({
   currentChar,
   data,
   handleChange,
+  title,
 }: {
   currentChar: CharData;
   data: CharData[];
   handleChange: (value: string) => void;
+  title: 'Character' | 'Class';
 }) => {
   return (
     <Select
       defaultValue={currentChar.name}
       onValueChange={(value) => handleChange(value)}
     >
-      <SelectTrigger className="w-[180px] max-w-full">
-        <SelectValue placeholder="Select a character" />
+      <SelectTrigger className="w-[160px] max-w-full">
+        <SelectValue placeholder={`Select ${title}`} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Characters</SelectLabel>
+          <SelectLabel>{`${title}`}</SelectLabel>
           {data.map((char) => (
             <SelectItem key={char.name} value={char.name}>
               {char.name}

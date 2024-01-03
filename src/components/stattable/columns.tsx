@@ -6,7 +6,7 @@ import { Button } from '../ui/button';
 import { ArrowUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const cols = [
+export const cols = [
   {
     accessorKey: 'name',
     // column: Column<CharData, unknown>
@@ -61,14 +61,15 @@ export const columns: ColumnDef<CharData>[] = cols.map((col) => {
       return (
         <Button
           variant="ghost"
+          size="icon"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
           className={cn(
-            'hover:text-none hover:bg-none',
+            'px-0 hover:text-foreground',
             column.getIsSorted() ? 'text-emerald-400' : '',
           )}
         >
           {col.header}
-          <ArrowUpDown className="ml-1 h-3 w-3" />
+          {/* <ArrowUpDown className="ml-1 h-3 w-3" /> */}
         </Button>
       );
     },
