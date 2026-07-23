@@ -13,7 +13,7 @@ export const Links = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="ml-auto flex items-center p-2 px-4 bg-background/80 rounded-md">
+    <ul className="ml-auto flex items-center p-2 bg-background/80 rounded-md">
       {links.map((l) => (
         <li key={l.label}>
           <Link
