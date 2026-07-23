@@ -44,6 +44,7 @@ export type CharData = {
 export interface ClassData extends CharData {
   weapons: Weapons[] | Weapons[][];
 }
+
 export const characterData: CharData[] = [
   {
     name: 'Alcryst',
