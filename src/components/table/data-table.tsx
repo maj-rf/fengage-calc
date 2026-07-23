@@ -22,6 +22,7 @@ import {
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Input } from '../ui/input';
+import { usePathname } from 'next/navigation';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -32,6 +33,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const pathname = usePathname();
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   // eslint-disable-next-line react-hooks/incompatible-library
@@ -51,18 +53,20 @@ export function DataTable<TData, TValue>({
 
   return (
     <section>
-      <div className="flex items-center py-4 w-full">
-        <Input
-          placeholder="Filter by name..."
-          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
-          onChange={(event) =>
-            table.getColumn('name')?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm mx-auto bg-white/70"
-        />
-      </div>
+      {pathname !== '/' && (
+        <div className="flex items-center mb-4 w-full">
+          <Input
+            placeholder="Filter by name..."
+            value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+            onChange={(event) =>
+              table.getColumn('name')?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm mx-auto bg-white/80"
+          />
+        </div>
+      )}
 
-      <div className="overflow-hidden border">
+      <div className="rounded-sm overflow-hidden">
         <Table className="bg-background">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -72,7 +76,7 @@ export function DataTable<TData, TValue>({
                     <TableHead
                       key={header.id}
                       className={cn(
-                        'text-background bg-foreground',
+                        'text-background bg-foreground px-0',
                         header.index === 0
                           ? 'text-left sticky left-0'
                           : 'text-center',

@@ -60,9 +60,10 @@ export const columns: ColumnDef<CharData>[] = cols.map((col) => {
     header: ({ column }) => {
       return (
         <Button
+          size="xs"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className={`${column.getIsSorted() ? 'bg-muted text-black' : ''}`}
+          className={`gap-0 ${column.getIsSorted() ? 'bg-muted text-black' : ''}`}
         >
           {col.header}
           <HugeiconsIcon icon={ArrowUpDown} className="size-3" />

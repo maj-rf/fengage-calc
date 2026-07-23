@@ -1,3 +1,9 @@
+import { CalcSection } from '@/components/calc-section';
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <CalcSection />
+    </div>
+  );
 }

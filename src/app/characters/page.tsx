@@ -4,7 +4,7 @@ import { characterData } from '@/lib/data';
 
 export default async function CharacterPage() {
   return (
-    <div className="container mx-auto py-10">
+    <div>
       <DataTable columns={columns} data={characterData} />
     </div>
   );

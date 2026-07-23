@@ -34,7 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-dvh bg-sommie bg-cover bg-no-repeat bg-fixed">
         <Navbar />
-        <main className="mt-8">{children}</main>
+        <main className="p-4 pt-0 w-full md:max-w-5/6 mx-auto">{children}</main>
       </body>
     </html>
   );

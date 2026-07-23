@@ -4,7 +4,7 @@ import { Links } from './links';
 
 export const Navbar = () => {
   return (
-    <header className="w-full absolute top-4">
+    <header className="w-full py-4">
       <nav className="flex items-center md:w-5/6 px-4 mx-auto">
         <h1 className="font-heading font-semibold">
           <Link
