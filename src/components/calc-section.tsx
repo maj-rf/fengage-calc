@@ -1,13 +1,29 @@
 'use client';
-import { characterData, classData } from '@/lib/data';
+import { CharData, ClassData } from '@/lib/data';
 import { useState } from 'react';
 import { columns } from './table/columns';
 import { DataTable } from './table/data-table';
 import { SelectDropdown } from './select-dropdown';
+import {
+  getFinalGrowth,
+  getMaxStats,
+  getSelectedClass,
+  getStarsphere,
+} from '@/lib/utils';
 
-export const CalcSection = () => {
+export const CalcSection = ({
+  characterData,
+  classData,
+}: {
+  characterData: CharData[];
+  classData: ClassData[];
+}) => {
   const [currentChar, setCurrentChar] = useState(characterData[1]);
   const [currentClass, setCurrentClass] = useState(classData[0]);
+  const selectedClass = getSelectedClass(currentChar.name, currentClass);
+  const totalGrowth = getFinalGrowth(currentChar, selectedClass);
+  const starsphere = getStarsphere(totalGrowth);
+  const maxStats = getMaxStats(currentChar, selectedClass);
 
   const handleCharacter = (value: string) => {
     const char = characterData.find((obj) => obj.name === value);
@@ -35,7 +51,10 @@ export const CalcSection = () => {
           title="Class"
         />
       </div>
-      <DataTable columns={columns} data={[currentChar, currentClass]} />
+      <DataTable
+        columns={columns}
+        data={[currentChar, selectedClass, totalGrowth, starsphere, maxStats]}
+      />
     </section>
   );
 };
