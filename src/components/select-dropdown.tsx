@@ -9,23 +9,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { CharData } from '@/lib/data';
+import { BaseData } from '@/lib/data';
 
-export const SelectDropdown = ({
+type Props<T extends BaseData> = {
+  currentChar: T;
+  data: T[];
+  handleChange: (value: string) => void;
+  title: 'Character' | 'Class';
+  disabled?: boolean;
+};
+
+export const SelectDropdown = <T extends BaseData>({
   currentChar,
   data,
   handleChange,
   title,
-}: {
-  currentChar: CharData;
-  data: CharData[];
-  handleChange: (value: string) => void;
-  title: 'Character' | 'Class';
-}) => {
+  disabled,
+}: Props<T>) => {
   return (
     <Select
       value={currentChar.name}
       onValueChange={(value) => handleChange(value ?? 'none')}
+      disabled={disabled}
     >
       <SelectTrigger className="w-40 max-w-full bg-background/80">
         <SelectValue placeholder={`Select ${title}`} />

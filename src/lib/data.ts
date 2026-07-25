@@ -35,18 +35,22 @@ export type Weapons =
   | 'spear'
   | 'sword';
 
-export type CharData = {
+export type BaseData = {
   name: string;
-  baseClass?: string;
-  baseStats?: Stats;
-  initLevel?: number;
-  initInternalLevel?: number;
   growth: Stats;
   mods: Mods;
 };
 
-export interface ClassData extends CharData {
+export interface CharData extends BaseData {
+  baseClass: string;
+  baseStats: Stats;
+  initLevel: number;
+  initInternalLevel: number;
+}
+
+export interface ClassData extends BaseData {
   weapons: Weapons[] | Weapons[][];
+  type: 'Base' | 'Special' | 'Advanced';
 }
 
 export const characterData: CharData[] = [
@@ -1736,6 +1740,7 @@ export const characterData: CharData[] = [
 export const classData: ClassData[] = [
   {
     name: 'Archer',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 15,
@@ -1763,6 +1768,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Armor',
+    type: 'Base',
     growth: {
       HP: 20,
       STR: 15,
@@ -1790,6 +1796,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Avenir',
+    type: 'Advanced',
     growth: {
       HP: 15,
       STR: 15,
@@ -1817,6 +1824,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Axe Fighter',
+    type: 'Base',
     growth: {
       HP: 25,
       STR: 20,
@@ -1844,6 +1852,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Berserker',
+    type: 'Advanced',
     growth: {
       HP: 30,
       STR: 30,
@@ -1871,6 +1880,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Bow Knight',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 10,
@@ -1902,6 +1912,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Cavalier',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 10,
@@ -1929,6 +1940,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Cupido',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 5,
@@ -1956,6 +1968,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Dancer',
+    type: 'Special',
     growth: {
       HP: 5,
       STR: 10,
@@ -1983,6 +1996,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Divine Dragon',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 10,
@@ -2010,6 +2024,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Dragon Child',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 10,
@@ -2037,6 +2052,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Enchanter',
+    type: 'Special',
     growth: {
       HP: 5,
       STR: 15,
@@ -2064,6 +2080,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Fell Child',
+    type: 'Special',
     growth: {
       HP: 10,
       STR: 10,
@@ -2091,6 +2108,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Fell Child(N)',
+    type: 'Special',
     growth: {
       HP: 10,
       STR: 15,
@@ -2118,6 +2136,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Fell Child(R)',
+    type: 'Special',
     growth: {
       HP: 15,
       STR: 20,
@@ -2145,6 +2164,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Flier',
+    type: 'Base',
     growth: {
       HP: 5,
       STR: 10,
@@ -2172,6 +2192,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'General',
+    type: 'Advanced',
     growth: {
       HP: 25,
       STR: 20,
@@ -2199,6 +2220,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Great Knight',
+    type: 'Advanced',
     growth: {
       HP: 20,
       STR: 15,
@@ -2230,6 +2252,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Griffin Knight',
+    type: 'Advanced',
     growth: {
       HP: 0,
       STR: 10,
@@ -2261,6 +2284,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Halberdier',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 15,
@@ -2288,6 +2312,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Hero',
+    type: 'Advanced',
     growth: {
       HP: 15,
       STR: 15,
@@ -2318,6 +2343,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'High Priest',
+    type: 'Advanced',
     growth: {
       HP: 0,
       STR: 0,
@@ -2345,6 +2371,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Lance Fighter',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 10,
@@ -2372,6 +2399,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Lindwurm',
+    type: 'Advanced',
     growth: {
       HP: 5,
       STR: 0,
@@ -2399,6 +2427,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Lord(B)',
+    type: 'Base',
     growth: {
       HP: 15,
       STR: 20,
@@ -2426,6 +2455,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Lord(C)',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 10,
@@ -2453,6 +2483,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Mage',
+    type: 'Base',
     growth: {
       HP: 0,
       STR: 0,
@@ -2480,6 +2511,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Mage Cannoneer',
+    type: 'Special',
     growth: {
       HP: 15,
       STR: 10,
@@ -2507,6 +2539,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Mage Knight',
+    type: 'Advanced',
     growth: {
       HP: 5,
       STR: 5,
@@ -2538,6 +2571,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Martial Master',
+    type: 'Advanced',
     growth: {
       HP: 5,
       STR: 10,
@@ -2565,6 +2599,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Martial Monk',
+    type: 'Base',
     growth: {
       HP: 0,
       STR: 10,
@@ -2592,6 +2627,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Melusine',
+    type: 'Special',
     growth: {
       HP: 10,
       STR: 10,
@@ -2619,6 +2655,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Noble(Ca)',
+    type: 'Base',
     growth: {
       HP: 15,
       STR: 15,
@@ -2646,6 +2683,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Noble(M)',
+    type: 'Base',
     growth: {
       HP: 0,
       STR: 5,
@@ -2673,6 +2711,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Paladin',
+    type: 'Advanced',
     growth: {
       HP: 15,
       STR: 15,
@@ -2700,6 +2739,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Picket',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 15,
@@ -2727,6 +2767,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Royal Knight',
+    type: 'Advanced',
     growth: {
       HP: 5,
       STR: 10,
@@ -2754,6 +2795,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Sage',
+    type: 'Advanced',
     growth: {
       HP: 0,
       STR: 0,
@@ -2781,6 +2823,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Sentinel(B)',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 10,
@@ -2808,6 +2851,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Sentinel(Ca)',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 5,
@@ -2835,6 +2879,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Sleipnir Rider',
+    type: 'Advanced',
     growth: {
       HP: 0,
       STR: 0,
@@ -2862,6 +2907,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Sniper',
+    type: 'Advanced',
     growth: {
       HP: 15,
       STR: 15,
@@ -2889,6 +2935,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Successeur',
+    type: 'Advanced',
     growth: {
       HP: 15,
       STR: 20,
@@ -2916,6 +2963,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Sword Fighter',
+    type: 'Base',
     growth: {
       HP: 10,
       STR: 10,
@@ -2943,6 +2991,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Swordmaster',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 10,
@@ -2970,6 +3019,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Thief',
+    type: 'Special',
     growth: {
       HP: 5,
       STR: 10,
@@ -2997,6 +3047,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Tireur d’elite',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 10,
@@ -3024,6 +3075,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Vidame',
+    type: 'Advanced',
     growth: {
       HP: 5,
       STR: 10,
@@ -3051,6 +3103,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Warrior',
+    type: 'Advanced',
     growth: {
       HP: 25,
       STR: 20,
@@ -3078,6 +3131,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Wing Tamer',
+    type: 'Base',
     growth: {
       HP: 0,
       STR: 0,
@@ -3105,6 +3159,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Wing Tamer(D)',
+    type: 'Base',
     growth: {
       HP: 5,
       STR: 0,
@@ -3132,6 +3187,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Wolf Knight',
+    type: 'Advanced',
     growth: {
       HP: 10,
       STR: 5,
@@ -3163,6 +3219,7 @@ export const classData: ClassData[] = [
   },
   {
     name: 'Wyvern Knight',
+    type: 'Advanced',
     growth: {
       HP: 20,
       STR: 20,

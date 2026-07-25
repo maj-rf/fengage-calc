@@ -1,6 +1,6 @@
 'use client';
 
-import { CharData } from '@/lib/data';
+import { BaseData } from '@/lib/data';
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '../ui/button';
 import { HugeiconsIcon } from '@hugeicons/react';
@@ -54,7 +54,7 @@ export const cols = [
   },
 ];
 
-export const columns: ColumnDef<CharData>[] = cols.map((col) => {
+export const columns: ColumnDef<BaseData>[] = cols.map((col) => {
   return {
     accessorKey: col.accessorKey,
     header: ({ column }) => {
