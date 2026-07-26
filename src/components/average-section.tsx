@@ -6,21 +6,12 @@ import { getLevelUps, getSelectedClassGrowth } from '@/lib/utils';
 import { AverageTable } from './table/average-table';
 import { averageColumns } from './table/average-columns';
 
-export const AverageSection = ({
-  characterData,
-  classData,
-}: {
-  characterData: CharData[];
-  classData: ClassData[];
-}) => {
+export const AverageSection = ({ characterData, classData }: { characterData: CharData[]; classData: ClassData[] }) => {
   const [currentChar, setCurrentChar] = useState(characterData[1]);
-  const [currentClass, setCurrentClass] = useState(classData[0]);
+  const [currentClass, setCurrentClass] = useState(classData[10]);
   // const [currentPromotion, setCurrentPromotion] = useState(classData[2]);
 
-  const selectedClassGrowth = getSelectedClassGrowth(
-    currentChar.name,
-    currentClass,
-  );
+  const selectedClassGrowth = getSelectedClassGrowth(currentChar.name, currentClass);
 
   // const selectedPromotionGrowth = getSelectedClassGrowth(
   //   currentChar.name,
@@ -35,7 +26,12 @@ export const AverageSection = ({
   // );
   const handleCharacter = (value: string) => {
     const char = characterData.find((obj) => obj.name === value);
-    if (char) setCurrentChar(char);
+    if (char) {
+      setCurrentChar(char);
+      setCurrentClass((prev) => {
+        return classData.find((c) => c.name === char.baseClass) ?? prev;
+      });
+    }
   };
 
   const handleClass = (value: string) => {
@@ -57,12 +53,7 @@ export const AverageSection = ({
           handleChange={handleCharacter}
           title="Character"
         />
-        <SelectDropdown
-          currentChar={currentClass}
-          data={classData}
-          handleChange={handleClass}
-          title="Class"
-        />
+        <SelectDropdown currentChar={currentClass} data={classData} handleChange={handleClass} title="Class" />
 
         {/* <SelectDropdown
           currentChar={currentClass}
