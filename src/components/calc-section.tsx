@@ -4,26 +4,13 @@ import { useState } from 'react';
 import { columns } from './table/columns';
 import { DataTable } from './table/data-table';
 import { SelectDropdown } from './select-dropdown';
-import {
-  getFinalGrowth,
-  getMaxStats,
-  getSelectedClassGrowth,
-  getStarsphere,
-} from '@/lib/utils';
+import { getFinalGrowth, getMaxStats, getSelectedClassGrowth, getStarsphere } from '@/lib/utils';
+import ClassWeapons from './class-weapons';
 
-export const CalcSection = ({
-  characterData,
-  classData,
-}: {
-  characterData: CharData[];
-  classData: ClassData[];
-}) => {
+export const CalcSection = ({ characterData, classData }: { characterData: CharData[]; classData: ClassData[] }) => {
   const [currentChar, setCurrentChar] = useState(characterData[1]);
   const [currentClass, setCurrentClass] = useState(classData[10]);
-  const selectedClassGrowth = getSelectedClassGrowth(
-    currentChar.name,
-    currentClass,
-  );
+  const selectedClassGrowth = getSelectedClassGrowth(currentChar.name, currentClass);
   const totalGrowth = getFinalGrowth(currentChar, selectedClassGrowth);
   const starsphere = getStarsphere(totalGrowth);
   const maxStats = getMaxStats(currentChar, selectedClassGrowth);
@@ -47,23 +34,11 @@ export const CalcSection = ({
           handleChange={handleCharacter}
           title="Character"
         />
-        <SelectDropdown
-          currentChar={currentClass}
-          data={classData}
-          handleChange={handleClass}
-          title="Class"
-        />
+        <SelectDropdown currentChar={currentClass} data={classData} handleChange={handleClass} title="Class" />
       </div>
-      <DataTable
-        columns={columns}
-        data={[
-          currentChar,
-          selectedClassGrowth,
-          totalGrowth,
-          starsphere,
-          maxStats,
-        ]}
-      />
+      <ClassWeapons name={currentClass.name} weapons={currentClass.weapons} />
+
+      <DataTable columns={columns} data={[currentChar, selectedClassGrowth, totalGrowth, starsphere, maxStats]} />
     </section>
   );
 };

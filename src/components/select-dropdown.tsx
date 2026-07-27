@@ -19,19 +19,9 @@ type Props<T extends BaseData> = {
   disabled?: boolean;
 };
 
-export const SelectDropdown = <T extends BaseData>({
-  currentChar,
-  data,
-  handleChange,
-  title,
-  disabled,
-}: Props<T>) => {
+export const SelectDropdown = <T extends BaseData>({ currentChar, data, handleChange, title, disabled }: Props<T>) => {
   return (
-    <Select
-      value={currentChar.name}
-      onValueChange={(value) => handleChange(value ?? 'none')}
-      disabled={disabled}
-    >
+    <Select value={currentChar.name} onValueChange={(value) => handleChange(value ?? 'none')} disabled={disabled}>
       <SelectTrigger className="w-40 max-w-full bg-background/80">
         <SelectValue placeholder={`Select ${title}`} />
       </SelectTrigger>
