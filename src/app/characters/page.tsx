@@ -1,7 +1,11 @@
-import { StatTable } from '@/components/stattable/StatTable';
-import { columns } from '@/components/stattable/columns';
-import { characterData } from '@/data';
+import { columns } from '@/components/table/columns';
+import { DataTable } from '@/components/table/data-table';
+import { characterData } from '@/lib/data';
 
-export default function CharacterPage() {
-  return <StatTable columns={columns} data={characterData} />;
+export default async function CharacterPage() {
+  return (
+    <div>
+      <DataTable columns={columns} data={characterData} />
+    </div>
+  );
 }

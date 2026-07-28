@@ -1,11 +1,11 @@
-import CalcSection from '@/components/CalcSection';
-import { Faqs } from '@/components/Faqs';
-
+import { CalcSection } from '@/components/calc-section';
+import { Faqs } from '@/components/faqs';
+import { characterData, classData } from '@/lib/data';
 export default function Home() {
   return (
-    <main>
-      <CalcSection />
+    <div>
+      <CalcSection characterData={characterData} classData={classData} />
       <Faqs />
-    </main>
+    </div>
   );
 }
