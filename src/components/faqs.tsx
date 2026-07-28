@@ -48,7 +48,7 @@ export function Faqs() {
           rel="noopener noreferrer"
           className={buttonVariants({ variant: 'ghost', size: 'icon-lg' })}
         >
-          <HugeiconsIcon icon={KoFiIcon} className="size-6 text-muted-foreground" />
+          <HugeiconsIcon icon={KoFiIcon} className="size-6 text-mauve-700" />
         </a>
 
         <a
@@ -57,7 +57,7 @@ export function Faqs() {
           rel="noopener noreferrer"
           className={buttonVariants({ variant: 'ghost', size: 'icon-lg' })}
         >
-          <HugeiconsIcon icon={Github01Icon} className="size-5 text-muted-foreground" size={25} />
+          <HugeiconsIcon icon={Github01Icon} className="size-5 text-mauve-700" size={25} />
         </a>
       </div>
     </section>

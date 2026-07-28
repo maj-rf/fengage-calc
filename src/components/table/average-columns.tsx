@@ -45,4 +45,18 @@ export const cols = [
   },
 ];
 
-export const averageColumns: ColumnDef<BaseData>[] = [...cols];
+export const averageColumns: ColumnDef<BaseData>[] = cols.map((col) => {
+  return {
+    ...col,
+    cell: (info) => {
+      const value = info.getValue();
+      if (typeof value === 'number') {
+        const parts = value.toString().split('.');
+        const exceed = parts.length === 2 && parts[1].length > 2;
+        return exceed ? value.toFixed(2) : value;
+      }
+
+      return value;
+    },
+  };
+});

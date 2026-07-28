@@ -33,14 +33,15 @@ export type BaseData = {
 
 export interface CharData extends BaseData {
   baseClass: string;
-  baseStats: Stats;
   initLevel: number;
   initInternalLevel: number;
+  baseStats: Stats;
 }
 
 export interface ClassData extends BaseData {
   weapons: Weapons[] | Weapons[][];
   type: 'Base' | 'Special' | 'Advanced';
+  baseStats: Stats;
 }
 
 export const characterData: CharData[] = [
@@ -422,6 +423,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 15, MAG: 0, DEX: 25, SPD: 10, DEF: 5, RES: 0, LCK: 5, BLD: 0, RTG: 70 },
     mods: { HP: 68, STR: 38, MAG: 20, DEX: 45, SPD: 32, DEF: 23, RES: 24, LCK: 28, BLD: 14 },
     weapons: ['bow'],
+    baseStats: { HP: 19, STR: 6, MAG: 0, DEX: 9, SPD: 5, DEF: 1, RES: 2, LCK: 2, BLD: 4, RTG: 0 },
   },
   {
     name: 'Armor',
@@ -429,6 +431,7 @@ export const classData: ClassData[] = [
     growth: { HP: 20, STR: 15, MAG: 0, DEX: 10, SPD: 0, DEF: 30, RES: 0, LCK: 0, BLD: 5, RTG: 80 },
     mods: { HP: 75, STR: 42, MAG: 16, DEX: 39, SPD: 17, DEF: 51, RES: 16, LCK: 25, BLD: 20 },
     weapons: [['axe'], ['spear'], ['sword']],
+    baseStats: { HP: 25, STR: 8, MAG: 0, DEX: 6, SPD: 1, DEF: 0, RES: 2, LCK: 12, BLD: 7, RTG: 0 },
   },
   {
     name: 'Avenir',
@@ -436,6 +439,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 15, MAG: 0, DEX: 5, SPD: 10, DEF: 25, RES: 5, LCK: 20, BLD: 5, RTG: 100 },
     mods: { HP: 71, STR: 45, MAG: 20, DEX: 33, SPD: 35, DEF: 37, RES: 21, LCK: 45, BLD: 16 },
     weapons: ['sword', 'spear'],
+    baseStats: { HP: 25, STR: 8, MAG: 4, DEX: 7, SPD: 6, DEF: 6, RES: 6, LCK: 8, BLD: 7, RTG: 0 },
   },
   {
     name: 'Axe Fighter',
@@ -443,6 +447,7 @@ export const classData: ClassData[] = [
     growth: { HP: 25, STR: 20, MAG: 0, DEX: 5, SPD: 10, DEF: 5, RES: 0, LCK: 0, BLD: 5, RTG: 70 },
     mods: { HP: 94, STR: 46, MAG: 17, DEX: 23, SPD: 29, DEF: 20, RES: 11, LCK: 23, BLD: 20 },
     weapons: ['axe'],
+    baseStats: { HP: 26, STR: 9, MAG: 0, DEX: 5, SPD: 5, DEF: 1, RES: 1, LCK: 3, BLD: 7, RTG: 0 },
   },
   {
     name: 'Berserker',
@@ -450,6 +455,7 @@ export const classData: ClassData[] = [
     growth: { HP: 30, STR: 30, MAG: 0, DEX: 5, SPD: 10, DEF: 5, RES: 0, LCK: 0, BLD: 10, RTG: 90 },
     mods: { HP: 96, STR: 49, MAG: 17, DEX: 23, SPD: 29, DEF: 20, RES: 11, LCK: 23, BLD: 24 },
     weapons: ['axe'],
+    baseStats: { HP: 29, STR: 13, MAG: 0, DEX: 6, SPD: 6, DEF: 2, RES: 2, LCK: 3, BLD: 9, RTG: 0 },
   },
   {
     name: 'Bow Knight',
@@ -461,6 +467,7 @@ export const classData: ClassData[] = [
       ['bow', 'spear'],
       ['bow', 'sword'],
     ],
+    baseStats: { HP: 22, STR: 7, MAG: 2, DEX: 10, SPD: 8, DEF: 3, RES: 3, LCK: 3, BLD: 5, RTG: 0 },
   },
   {
     name: 'Cavalier',
@@ -468,6 +475,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 10, SPD: 10, DEF: 10, RES: 10, LCK: 10, BLD: 0, RTG: 70 },
     mods: { HP: 69, STR: 40, MAG: 21, DEX: 41, SPD: 37, DEF: 27, RES: 29, LCK: 30, BLD: 12 },
     weapons: [['axe'], ['spear'], ['sword']],
+    baseStats: { HP: 23, STR: 6, MAG: 1, DEX: 8, SPD: 7, DEF: 2, RES: 2, LCK: 4, BLD: 6, RTG: 0 },
   },
   {
     name: 'Cupido',
@@ -475,6 +483,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 5, MAG: 5, DEX: 20, SPD: 20, DEF: 5, RES: 20, LCK: 0, BLD: 0, RTG: 85 },
     mods: { HP: 67, STR: 35, MAG: 28, DEX: 33, SPD: 49, DEF: 28, RES: 31, LCK: 33, BLD: 16 },
     weapons: ['sword', 'bow'],
+    baseStats: { HP: 23, STR: 6, MAG: 3, DEX: 10, SPD: 8, DEF: 5, RES: 3, LCK: 5, BLD: 7, RTG: 0 },
   },
   {
     name: 'Dancer',
@@ -482,6 +491,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 10, MAG: 0, DEX: 5, SPD: 15, DEF: 10, RES: 20, LCK: 20, BLD: 0, RTG: 85 },
     mods: { HP: 64, STR: 36, MAG: 31, DEX: 29, SPD: 43, DEF: 24, RES: 26, LCK: 39, BLD: 15 },
     weapons: ['fist'],
+    baseStats: { HP: 21, STR: 5, MAG: 1, DEX: 8, SPD: 8, DEF: 5, RES: 5, LCK: 2, BLD: 5, RTG: 0 },
   },
   {
     name: 'Divine Dragon',
@@ -489,6 +499,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 10, SPD: 15, DEF: 15, RES: 15, LCK: 10, BLD: 5, RTG: 90 },
     mods: { HP: 68, STR: 41, MAG: 25, DEX: 36, SPD: 43, DEF: 35, RES: 25, LCK: 35, BLD: 13 },
     weapons: ['sword', 'fist'],
+    baseStats: { HP: 24, STR: 8, MAG: 1, DEX: 4, SPD: 8, DEF: 5, RES: 3, LCK: 6, BLD: 7, RTG: 0 },
   },
   {
     name: 'Dragon Child',
@@ -496,6 +507,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 10, SPD: 15, DEF: 10, RES: 10, LCK: 5, BLD: 5, RTG: 75 },
     mods: { HP: 68, STR: 41, MAG: 25, DEX: 36, SPD: 43, DEF: 35, RES: 25, LCK: 35, BLD: 13 },
     weapons: ['sword'],
+    baseStats: { HP: 22, STR: 6, MAG: 0, DEX: 2, SPD: 7, DEF: 3, RES: 2, LCK: 5, BLD: 4, RTG: 0 },
   },
   {
     name: 'Enchanter',
@@ -503,6 +515,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 15, MAG: 15, DEX: 15, SPD: 10, DEF: 5, RES: 5, LCK: 15, BLD: 5, RTG: 90 },
     mods: { HP: 53, STR: 25, MAG: 25, DEX: 43, SPD: 39, DEF: 20, RES: 22, LCK: 42, BLD: 11 },
     weapons: ['dagger', 'fist'],
+    baseStats: { HP: 20, STR: 5, MAG: 5, DEX: 5, SPD: 5, DEF: 5, RES: 5, LCK: 5, BLD: 5, RTG: 0 },
   },
   {
     name: 'Fell Child',
@@ -510,6 +523,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 25, DEX: 10, SPD: 5, DEF: 10, RES: 25, LCK: 0, BLD: 0, RTG: 95 },
     mods: { HP: 48, STR: 35, MAG: 48, DEX: 36, SPD: 33, DEF: 25, RES: 41, LCK: 30, BLD: 11 },
     weapons: ['dagger', 'magic'],
+    baseStats: { HP: 20, STR: 3, MAG: 7, DEX: 4, SPD: 5, DEF: 7, RES: 3, LCK: 2, BLD: 4, RTG: 0 },
   },
   {
     name: 'Fell Child(N)',
@@ -517,6 +531,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 15, MAG: 10, DEX: 10, SPD: 15, DEF: 15, RES: 15, LCK: 0, BLD: 5, RTG: 95 },
     mods: { HP: 65, STR: 39, MAG: 30, DEX: 32, SPD: 45, DEF: 33, RES: 31, LCK: 37, BLD: 13 },
     weapons: ['spear', 'breath'],
+    baseStats: { HP: 20, STR: 5, MAG: 5, DEX: 5, SPD: 5, DEF: 5, RES: 5, LCK: 5, BLD: 5, RTG: 0 },
   },
   {
     name: 'Fell Child(R)',
@@ -524,6 +539,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 20, MAG: 0, DEX: 5, SPD: 5, DEF: 20, RES: 10, LCK: 0, BLD: 10, RTG: 85 },
     mods: { HP: 76, STR: 46, MAG: 13, DEX: 30, SPD: 33, DEF: 42, RES: 20, LCK: 19, BLD: 13 },
     weapons: ['axe', 'breath'],
+    baseStats: { HP: 20, STR: 5, MAG: 5, DEX: 5, SPD: 5, DEF: 5, RES: 5, LCK: 5, BLD: 5, RTG: 0 },
   },
   {
     name: 'Flier',
@@ -531,6 +547,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 10, MAG: 5, DEX: 10, SPD: 10, DEF: 0, RES: 10, LCK: 10, BLD: 0, RTG: 60 },
     mods: { HP: 68, STR: 40, MAG: 31, DEX: 43, SPD: 38, DEF: 27, RES: 22, LCK: 25, BLD: 14 },
     weapons: [['axe'], ['spear'], ['sword']],
+    baseStats: { HP: 21, STR: 5, MAG: 2, DEX: 7, SPD: 9, DEF: 7, RES: 3, LCK: 3, BLD: 4, RTG: 0 },
   },
   {
     name: 'General',
@@ -538,6 +555,7 @@ export const classData: ClassData[] = [
     growth: { HP: 25, STR: 20, MAG: 0, DEX: 10, SPD: 0, DEF: 30, RES: 0, LCK: 0, BLD: 10, RTG: 95 },
     mods: { HP: 86, STR: 47, MAG: 16, DEX: 39, SPD: 17, DEF: 55, RES: 16, LCK: 25, BLD: 25 },
     weapons: [['axe'], ['spear'], ['sword']],
+    baseStats: { HP: 28, STR: 11, MAG: 1, DEX: 7, SPD: 2, DEF: 1, RES: 3, LCK: 14, BLD: 10, RTG: 0 },
   },
   {
     name: 'Great Knight',
@@ -549,6 +567,7 @@ export const classData: ClassData[] = [
       ['sword', 'spear'],
       ['sword', 'axe'],
     ],
+    baseStats: { HP: 26, STR: 9, MAG: 2, DEX: 8, SPD: 5, DEF: 2, RES: 3, LCK: 13, BLD: 8, RTG: 0 },
   },
   {
     name: 'Griffin Knight',
@@ -560,6 +579,7 @@ export const classData: ClassData[] = [
       ['spear', 'rod'],
       ['sword', 'rod'],
     ],
+    baseStats: { HP: 22, STR: 7, MAG: 3, DEX: 10, SPD: 11, DEF: 9, RES: 5, LCK: 4, BLD: 5, RTG: 0 },
   },
   {
     name: 'Halberdier',
@@ -567,6 +587,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 15, MAG: 5, DEX: 20, SPD: 10, DEF: 15, RES: 5, LCK: 5, BLD: 0, RTG: 85 },
     mods: { HP: 76, STR: 46, MAG: 29, DEX: 47, SPD: 36, DEF: 35, RES: 25, LCK: 25, BLD: 15 },
     weapons: ['spear'],
+    baseStats: { HP: 24, STR: 9, MAG: 1, DEX: 9, SPD: 7, DEF: 2, RES: 3, LCK: 6, BLD: 6, RTG: 0 },
   },
   {
     name: 'Hero',
@@ -577,6 +598,7 @@ export const classData: ClassData[] = [
       ['sword', 'spear'],
       ['sword', 'axe'],
     ],
+    baseStats: { HP: 23, STR: 8, MAG: 0, DEX: 8, SPD: 9, DEF: 2, RES: 3, LCK: 5, BLD: 7, RTG: 0 },
   },
   {
     name: 'High Priest',
@@ -584,6 +606,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 0, MAG: 25, DEX: 0, SPD: 5, DEF: 0, RES: 30, LCK: 30, BLD: 0, RTG: 90 },
     mods: { HP: 55, STR: 28, MAG: 45, DEX: 31, SPD: 32, DEF: 20, RES: 48, LCK: 38, BLD: 13 },
     weapons: ['magic', 'rod', 'fist'],
+    baseStats: { HP: 20, STR: 3, MAG: 8, DEX: 8, SPD: 6, DEF: 10, RES: 5, LCK: 3, BLD: 4, RTG: 0 },
   },
   {
     name: 'Lance Fighter',
@@ -591,6 +614,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 5, DEX: 20, SPD: 5, DEF: 10, RES: 5, LCK: 0, BLD: 0, RTG: 65 },
     mods: { HP: 69, STR: 43, MAG: 29, DEX: 47, SPD: 36, DEF: 28, RES: 25, LCK: 25, BLD: 12 },
     weapons: ['spear'],
+    baseStats: { HP: 23, STR: 7, MAG: 2, DEX: 8, SPD: 6, DEF: 2, RES: 2, LCK: 4, BLD: 5, RTG: 0 },
   },
   {
     name: 'Lindwurm',
@@ -598,6 +622,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 0, MAG: 25, DEX: 5, SPD: 0, DEF: 15, RES: 25, LCK: 0, BLD: 0, RTG: 75 },
     mods: { HP: 60, STR: 31, MAG: 40, DEX: 25, SPD: 34, DEF: 31, RES: 40, LCK: 20, BLD: 15 },
     weapons: ['magic', 'rod'],
+    baseStats: { HP: 22, STR: 2, MAG: 10, DEX: 5, SPD: 5, DEF: 9, RES: 1, LCK: 8, BLD: 6, RTG: 0 },
   },
   {
     name: 'Lord(B)',
@@ -605,6 +630,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 20, MAG: 0, DEX: 10, SPD: 10, DEF: 10, RES: 0, LCK: 5, BLD: 0, RTG: 70 },
     mods: { HP: 77, STR: 43, MAG: 23, DEX: 23, SPD: 38, DEF: 38, RES: 20, LCK: 25, BLD: 20 },
     weapons: ['sword'],
+    baseStats: { HP: 23, STR: 8, MAG: 1, DEX: 7, SPD: 8, DEF: 3, RES: 3, LCK: 5, BLD: 7, RTG: 0 },
   },
   {
     name: 'Lord(C)',
@@ -612,6 +638,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 25, SPD: 10, DEF: 10, RES: 0, LCK: 5, BLD: 0, RTG: 70 },
     mods: { HP: 68, STR: 41, MAG: 20, DEX: 41, SPD: 40, DEF: 29, RES: 19, LCK: 30, BLD: 15 },
     weapons: ['bow'],
+    baseStats: { HP: 21, STR: 7, MAG: 1, DEX: 10, SPD: 7, DEF: 3, RES: 2, LCK: 4, BLD: 5, RTG: 0 },
   },
   {
     name: 'Mage',
@@ -619,6 +646,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 0, MAG: 25, DEX: 5, SPD: 0, DEF: 0, RES: 25, LCK: 5, BLD: 0, RTG: 60 },
     mods: { HP: 43, STR: 26, MAG: 40, DEX: 28, SPD: 30, DEF: 20, RES: 40, LCK: 24, BLD: 11 },
     weapons: ['magic'],
+    baseStats: { HP: 18, STR: 1, MAG: 7, DEX: 6, SPD: 6, DEF: 7, RES: 2, LCK: 1, BLD: 4, RTG: 0 },
   },
   {
     name: 'Mage Cannoneer',
@@ -626,6 +654,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 10, MAG: 0, DEX: 15, SPD: 5, DEF: 20, RES: 5, LCK: 10, BLD: 10, RTG: 90 },
     mods: { HP: 73, STR: 45, MAG: 23, DEX: 43, SPD: 23, DEF: 49, RES: 24, LCK: 31, BLD: 18 },
     weapons: ['bullet'],
+    baseStats: { HP: 20, STR: 5, MAG: 5, DEX: 5, SPD: 5, DEF: 5, RES: 5, LCK: 5, BLD: 5, RTG: 0 },
   },
   {
     name: 'Mage Knight',
@@ -637,6 +666,7 @@ export const classData: ClassData[] = [
       ['axe', 'magic'],
       ['spear', 'magic'],
     ],
+    baseStats: { HP: 21, STR: 5, MAG: 7, DEX: 8, SPD: 9, DEF: 8, RES: 2, LCK: 3, BLD: 6, RTG: 0 },
   },
   {
     name: 'Martial Master',
@@ -644,6 +674,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 10, MAG: 20, DEX: 0, SPD: 0, DEF: 15, RES: 25, LCK: 10, BLD: 0, RTG: 85 },
     mods: { HP: 66, STR: 38, MAG: 41, DEX: 26, SPD: 28, DEF: 27, RES: 39, LCK: 29, BLD: 15 },
     weapons: ['rod', 'fist'],
+    baseStats: { HP: 22, STR: 6, MAG: 5, DEX: 6, SPD: 5, DEF: 7, RES: 4, LCK: 4, BLD: 6, RTG: 0 },
   },
   {
     name: 'Martial Monk',
@@ -651,6 +682,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 10, MAG: 25, DEX: 0, SPD: 0, DEF: 10, RES: 20, LCK: 10, BLD: 0, RTG: 75 },
     mods: { HP: 55, STR: 28, MAG: 41, DEX: 26, SPD: 28, DEF: 20, RES: 39, LCK: 29, BLD: 13 },
     weapons: ['rod', 'fist'],
+    baseStats: { HP: 18, STR: 3, MAG: 5, DEX: 6, SPD: 5, DEF: 8, RES: 3, LCK: 3, BLD: 3, RTG: 0 },
   },
   {
     name: 'Melusine',
@@ -658,6 +690,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 10, DEX: 10, SPD: 15, DEF: 10, RES: 10, LCK: 0, BLD: 5, RTG: 80 },
     mods: { HP: 75, STR: 40, MAG: 39, DEX: 33, SPD: 35, DEF: 33, RES: 36, LCK: 27, BLD: 12 },
     weapons: ['dagger', 'magic'],
+    baseStats: { HP: 22, STR: 7, MAG: 8, DEX: 6, SPD: 8, DEF: 9, RES: 2, LCK: 6, BLD: 6, RTG: 0 },
   },
   {
     name: 'Noble(Ca)',
@@ -665,6 +698,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 15, MAG: 0, DEX: 5, SPD: 5, DEF: 20, RES: 5, LCK: 15, BLD: 0, RTG: 80 },
     mods: { HP: 71, STR: 45, MAG: 20, DEX: 33, SPD: 35, DEF: 37, RES: 21, LCK: 45, BLD: 16 },
     weapons: ['spear'],
+    baseStats: { HP: 24, STR: 7, MAG: 2, DEX: 6, SPD: 5, DEF: 4, RES: 4, LCK: 6, BLD: 6, RTG: 0 },
   },
   {
     name: 'Noble(M)',
@@ -672,6 +706,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 5, MAG: 10, DEX: 5, SPD: 5, DEF: 5, RES: 10, LCK: 20, BLD: 0, RTG: 60 },
     mods: { HP: 56, STR: 38, MAG: 37, DEX: 29, SPD: 41, DEF: 27, RES: 35, LCK: 50, BLD: 11 },
     weapons: ['sword', 'magic'],
+    baseStats: { HP: 20, STR: 5, MAG: 8, DEX: 5, SPD: 8, DEF: 5, RES: 4, LCK: 3, BLD: 4, RTG: 0 },
   },
   {
     name: 'Paladin',
@@ -679,6 +714,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 15, MAG: 0, DEX: 10, SPD: 15, DEF: 15, RES: 15, LCK: 10, BLD: 0, RTG: 95 },
     mods: { HP: 77, STR: 45, MAG: 21, DEX: 45, SPD: 37, DEF: 35, RES: 29, LCK: 30, BLD: 16 },
     weapons: [['axe'], ['spear'], ['sword']],
+    baseStats: { HP: 25, STR: 8, MAG: 2, DEX: 10, SPD: 8, DEF: 3, RES: 3, LCK: 6, BLD: 7, RTG: 0 },
   },
   {
     name: 'Picket',
@@ -686,6 +722,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 15, MAG: 0, DEX: 10, SPD: 10, DEF: 20, RES: 5, LCK: 5, BLD: 5, RTG: 80 },
     mods: { HP: 63, STR: 35, MAG: 27, DEX: 47, SPD: 41, DEF: 33, RES: 26, LCK: 37, BLD: 12 },
     weapons: ['spear'],
+    baseStats: { HP: 25, STR: 9, MAG: 2, DEX: 6, SPD: 9, DEF: 3, RES: 4, LCK: 10, BLD: 5, RTG: 0 },
   },
   {
     name: 'Royal Knight',
@@ -693,6 +730,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 10, MAG: 15, DEX: 15, SPD: 15, DEF: 5, RES: 20, LCK: 10, BLD: 0, RTG: 95 },
     mods: { HP: 69, STR: 43, MAG: 39, DEX: 47, SPD: 40, DEF: 28, RES: 36, LCK: 32, BLD: 12 },
     weapons: ['spear', 'rod'],
+    baseStats: { HP: 23, STR: 7, MAG: 5, DEX: 9, SPD: 8, DEF: 4, RES: 5, LCK: 5, BLD: 6, RTG: 0 },
   },
   {
     name: 'Sage',
@@ -700,6 +738,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 0, MAG: 30, DEX: 5, SPD: 0, DEF: 0, RES: 30, LCK: 15, BLD: 0, RTG: 80 },
     mods: { HP: 43, STR: 26, MAG: 48, DEX: 34, SPD: 30, DEF: 20, RES: 44, LCK: 30, BLD: 11 },
     weapons: ['magic', 'rod'],
+    baseStats: { HP: 20, STR: 1, MAG: 9, DEX: 8, SPD: 7, DEF: 9, RES: 3, LCK: 3, BLD: 5, RTG: 0 },
   },
   {
     name: 'Sentinel(B)',
@@ -707,6 +746,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 10, SPD: 5, DEF: 20, RES: 0, LCK: 5, BLD: 0, RTG: 60 },
     mods: { HP: 63, STR: 35, MAG: 27, DEX: 47, SPD: 41, DEF: 33, RES: 26, LCK: 37, BLD: 12 },
     weapons: ['spear'],
+    baseStats: { HP: 24, STR: 8, MAG: 1, DEX: 5, SPD: 7, DEF: 1, RES: 3, LCK: 8, BLD: 4, RTG: 0 },
   },
   {
     name: 'Sentinel(Ca)',
@@ -714,6 +754,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 5, MAG: 0, DEX: 15, SPD: 15, DEF: 5, RES: 15, LCK: 0, BLD: 0, RTG: 65 },
     mods: { HP: 67, STR: 35, MAG: 28, DEX: 33, SPD: 49, DEF: 28, RES: 31, LCK: 33, BLD: 16 },
     weapons: ['bow'],
+    baseStats: { HP: 21, STR: 5, MAG: 1, DEX: 9, SPD: 7, DEF: 3, RES: 2, LCK: 4, BLD: 6, RTG: 0 },
   },
   {
     name: 'Sleipnir Rider',
@@ -721,6 +762,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 0, MAG: 20, DEX: 15, SPD: 15, DEF: 0, RES: 30, LCK: 15, BLD: 0, RTG: 95 },
     mods: { HP: 47, STR: 26, MAG: 39, DEX: 36, SPD: 45, DEF: 19, RES: 51, LCK: 53, BLD: 11 },
     weapons: ['magic', 'rod'],
+    baseStats: { HP: 18, STR: 1, MAG: 7, DEX: 10, SPD: 10, DEF: 13, RES: 8, LCK: 2, BLD: 5, RTG: 0 },
   },
   {
     name: 'Sniper',
@@ -728,6 +770,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 15, MAG: 0, DEX: 30, SPD: 10, DEF: 10, RES: 0, LCK: 10, BLD: 0, RTG: 90 },
     mods: { HP: 68, STR: 45, MAG: 20, DEX: 52, SPD: 32, DEF: 29, RES: 24, LCK: 28, BLD: 14 },
     weapons: ['bow'],
+    baseStats: { HP: 22, STR: 8, MAG: 1, DEX: 11, SPD: 6, DEF: 1, RES: 3, LCK: 3, BLD: 5, RTG: 0 },
   },
   {
     name: 'Successeur',
@@ -735,6 +778,7 @@ export const classData: ClassData[] = [
     growth: { HP: 15, STR: 20, MAG: 0, DEX: 10, SPD: 15, DEF: 15, RES: 0, LCK: 10, BLD: 5, RTG: 90 },
     mods: { HP: 77, STR: 43, MAG: 23, DEX: 23, SPD: 38, DEF: 38, RES: 20, LCK: 25, BLD: 20 },
     weapons: ['sword', 'axe'],
+    baseStats: { HP: 25, STR: 10, MAG: 2, DEX: 8, SPD: 9, DEF: 3, RES: 4, LCK: 6, BLD: 8, RTG: 0 },
   },
   {
     name: 'Sword Fighter',
@@ -742,6 +786,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 15, SPD: 20, DEF: 0, RES: 15, LCK: 10, BLD: 0, RTG: 80 },
     mods: { HP: 67, STR: 40, MAG: 20, DEX: 37, SPD: 41, DEF: 27, RES: 22, LCK: 33, BLD: 12 },
     weapons: ['sword'],
+    baseStats: { HP: 20, STR: 5, MAG: 0, DEX: 7, SPD: 8, DEF: 2, RES: 2, LCK: 3, BLD: 5, RTG: 0 },
   },
   {
     name: 'Swordmaster',
@@ -749,6 +794,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 15, SPD: 20, DEF: 0, RES: 15, LCK: 15, BLD: 0, RTG: 85 },
     mods: { HP: 67, STR: 40, MAG: 25, DEX: 44, SPD: 49, DEF: 27, RES: 26, LCK: 37, BLD: 12 },
     weapons: ['sword'],
+    baseStats: { HP: 21, STR: 6, MAG: 1, DEX: 9, SPD: 11, DEF: 3, RES: 4, LCK: 4, BLD: 6, RTG: 0 },
   },
   {
     name: 'Thief',
@@ -756,6 +802,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 10, MAG: 0, DEX: 20, SPD: 15, DEF: 15, RES: 5, LCK: 15, BLD: 0, RTG: 85 },
     mods: { HP: 60, STR: 43, MAG: 22, DEX: 51, SPD: 42, DEF: 33, RES: 23, LCK: 30, BLD: 13 },
     weapons: ['dagger'],
+    baseStats: { HP: 22, STR: 5, MAG: 0, DEX: 10, SPD: 10, DEF: 2, RES: 2, LCK: 6, BLD: 4, RTG: 0 },
   },
   {
     name: 'Tireur d’elite',
@@ -763,6 +810,7 @@ export const classData: ClassData[] = [
     growth: { HP: 10, STR: 10, MAG: 0, DEX: 30, SPD: 10, DEF: 15, RES: 5, LCK: 5, BLD: 0, RTG: 85 },
     mods: { HP: 68, STR: 41, MAG: 20, DEX: 41, SPD: 40, DEF: 29, RES: 19, LCK: 30, BLD: 15 },
     weapons: ['bow'],
+    baseStats: { HP: 22, STR: 8, MAG: 1, DEX: 12, SPD: 8, DEF: 4, RES: 4, LCK: 6, BLD: 6, RTG: 0 },
   },
   {
     name: 'Vidame',
@@ -770,6 +818,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 10, MAG: 15, DEX: 5, SPD: 5, DEF: 5, RES: 15, LCK: 20, BLD: 0, RTG: 80 },
     mods: { HP: 56, STR: 38, MAG: 37, DEX: 29, SPD: 41, DEF: 27, RES: 35, LCK: 50, BLD: 11 },
     weapons: ['sword', 'magic', 'rod'],
+    baseStats: { HP: 21, STR: 6, MAG: 9, DEX: 6, SPD: 9, DEF: 6, RES: 5, LCK: 4, BLD: 5, RTG: 0 },
   },
   {
     name: 'Warrior',
@@ -777,6 +826,7 @@ export const classData: ClassData[] = [
     growth: { HP: 25, STR: 20, MAG: 0, DEX: 10, SPD: 15, DEF: 10, RES: 5, LCK: 0, BLD: 5, RTG: 90 },
     mods: { HP: 94, STR: 46, MAG: 20, DEX: 30, SPD: 33, DEF: 27, RES: 18, LCK: 23, BLD: 20 },
     weapons: ['axe', 'bow'],
+    baseStats: { HP: 27, STR: 12, MAG: 1, DEX: 7, SPD: 7, DEF: 3, RES: 2, LCK: 4, BLD: 8, RTG: 0 },
   },
   {
     name: 'Wing Tamer',
@@ -784,6 +834,7 @@ export const classData: ClassData[] = [
     growth: { HP: 0, STR: 0, MAG: 15, DEX: 10, SPD: 10, DEF: 0, RES: 25, LCK: 10, BLD: 0, RTG: 70 },
     mods: { HP: 47, STR: 26, MAG: 39, DEX: 36, SPD: 45, DEF: 19, RES: 51, LCK: 53, BLD: 11 },
     weapons: ['magic', 'rod'],
+    baseStats: { HP: 18, STR: 0, MAG: 5, DEX: 9, SPD: 8, DEF: 11, RES: 6, LCK: 1, BLD: 4, RTG: 0 },
   },
   {
     name: 'Wing Tamer(D)',
@@ -791,6 +842,7 @@ export const classData: ClassData[] = [
     growth: { HP: 5, STR: 0, MAG: 20, DEX: 0, SPD: 0, DEF: 10, RES: 20, LCK: 0, BLD: 0, RTG: 55 },
     mods: { HP: 60, STR: 31, MAG: 40, DEX: 25, SPD: 34, DEF: 31, RES: 40, LCK: 20, BLD: 15 },
     weapons: ['magic', 'rod'],
+    baseStats: { HP: 20, STR: 1, MAG: 8, DEX: 4, SPD: 4, DEF: 8, RES: 1, LCK: 6, BLD: 5, RTG: 0 },
   },
   {
     name: 'Wolf Knight',
@@ -802,6 +854,7 @@ export const classData: ClassData[] = [
       ['dagger', 'spear'],
       ['dagger', 'sword'],
     ],
+    baseStats: { HP: 23, STR: 6, MAG: 3, DEX: 9, SPD: 10, DEF: 4, RES: 4, LCK: 4, BLD: 6, RTG: 0 },
   },
   {
     name: 'Wyvern Knight',
@@ -813,5 +866,6 @@ export const classData: ClassData[] = [
       ['sword', 'spear'],
       ['sword', 'axe'],
     ],
+    baseStats: { HP: 25, STR: 9, MAG: 1, DEX: 8, SPD: 9, DEF: 5, RES: 3, LCK: 6, BLD: 6, RTG: 0 },
   },
 ];

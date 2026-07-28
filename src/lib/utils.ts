@@ -6,27 +6,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const BASE_TYPES = [
-  'Archer',
-  'Armor',
-  'Axe Fighter',
-  'Cavalier',
-  'Dragon Child',
-  'Flier',
-  'Lance Fighter',
-  'Lord(B)',
-  'Lord(C)',
-  'Mage',
-  'Martial Monk',
-  'Noble(Ca)',
-  'Noble(M)',
-  'Sentinel(B)',
-  'Sentinel(Ca)',
-  'Sword Fighter',
-  'Wing Tamer',
-  'Wing Tamer(D)',
-];
-
 export const SPECIAL_TYPES = [
   'Dancer',
   'Enchanter',
@@ -36,36 +15,6 @@ export const SPECIAL_TYPES = [
   'Mage Cannoneer',
   'Melusine',
   'Thief',
-];
-
-export const ADVANCE_TYPES = [
-  'Avenir',
-  'Berserker',
-  'Bow Knight',
-  'Cupido',
-  'Divine Dragon',
-  'General',
-  'Great Knight',
-  'Griffin Knight',
-  'Halberdier',
-  'Hero',
-  'High Priest',
-  'Lindwurm',
-  'Mage Knight',
-  'Martial Master',
-  'Paladin',
-  'Picket',
-  'Royal Knight',
-  'Sage',
-  'Sleipnir Rider',
-  'Sniper',
-  'Successeur',
-  'Swordmaster',
-  'Tireur d’elite',
-  'Vidame',
-  'Warrior',
-  'Wolf Knight',
-  'Wyvern Knight',
 ];
 
 export function getSelectedClassGrowth(name: string, currentClass: ClassData): BaseData {
@@ -114,49 +63,68 @@ export function getMaxStats(currentChar: CharData, selectedClass: BaseData) {
   };
 }
 
-function calculateStat(obj: { base: Stats; char: Stats; cls: Stats; mult: number; max: Stats }) {
-  const { base, char, cls, mult, max } = obj;
+function calculateStat(obj: {
+  base: Stats;
+  char: Stats;
+  cls: Stats;
+  mult: number;
+  max: Stats;
+  promotionBase?: Stats;
+  primaryBase?: Stats;
+}) {
+  const { base, char, cls, mult, max, promotionBase, primaryBase } = obj;
   const result = { ...base };
-
+  const primary = primaryBase ?? { HP: 0, STR: 0, MAG: 0, DEX: 0, SPD: 0, DEF: 0, RES: 0, BLD: 0, LCK: 0, RTG: 0 };
+  const promotion = promotionBase ?? { HP: 0, STR: 0, MAG: 0, DEX: 0, SPD: 0, DEF: 0, RES: 0, BLD: 0, LCK: 0, RTG: 0 };
   for (const key of Object.keys(result) as (keyof Stats)[]) {
-    if (result[key] !== null && char[key] !== null && cls[key] !== null && max[key] !== null) {
-      result[key] += (mult * (char[key] + cls[key])) / 100;
+    if (
+      result[key] !== null &&
+      char[key] !== null &&
+      cls[key] !== null &&
+      max[key] !== null &&
+      primary[key] !== null &&
+      promotion[key] !== null
+    ) {
+      result[key] += (mult * (char[key] + cls[key])) / 100 + promotion[key] - primary[key];
       result[key] = result[key] >= max[key] ? max[key] : result[key];
     }
   }
   return result;
 }
 
-export function getLevelUps(currentChar: CharData, selectedClass: BaseData, className: string) {
+export function getLevelUps(currentChar: CharData, selectedClass: BaseData, className: string, to: number): CharData[] {
   const arr = [];
-
+  const { initLevel } = currentChar;
   const base = currentChar.baseStats;
   const char = currentChar.growth;
-
   const cls = selectedClass.growth;
-  const maxLevel = SPECIAL_TYPES.includes(className) ? 40 : 20;
-  const maxStats = { ...getMaxStats(currentChar, selectedClass).mods, RTG: 0 };
-  for (
-    let i =
-      currentChar.initInternalLevel > maxLevel
-        ? currentChar.initInternalLevel - maxLevel + 2
-        : currentChar.initLevel - 1;
-    i < maxLevel;
-    i++
-  ) {
-    const stat = calculateStat({
-      base,
-      char,
-      cls,
-      mult: currentChar.initInternalLevel > currentChar.initLevel ? i : i - currentChar.initInternalLevel + 1,
-      max: maxStats,
-    });
-    arr.push({
-      ...currentChar,
-      name: `${i + 1}`,
-      baseStats: stat,
-    });
+  const max = { ...getMaxStats(currentChar, selectedClass).mods, RTG: 0 };
+  const classMax = SPECIAL_TYPES.includes(className) ? 40 : 20;
+  const maxLevel = to >= classMax ? classMax : to;
+  for (let i = initLevel - 1; i < maxLevel; i++) {
+    const stat = calculateStat({ base, char, cls, mult: i - initLevel + 1, max });
+    arr.push({ ...currentChar, name: `${i + 1}`, baseStats: stat });
   }
 
+  return arr;
+}
+
+export function getPromotionLevelUps(
+  prepromote: CharData,
+  selectedClass: BaseData,
+  primaryBase: Stats,
+  promotionBase: Stats,
+  to: number,
+): CharData[] {
+  const arr = [];
+  const base = prepromote.baseStats;
+  const char = prepromote.growth;
+  const cls = selectedClass.growth;
+  const maxLevel = to >= 20 ? 20 : to;
+  const max = { ...getMaxStats(prepromote, selectedClass).mods, RTG: 0 };
+  for (let i = 0; i < maxLevel; i++) {
+    const stat = calculateStat({ base, char, cls, mult: i, max, primaryBase, promotionBase });
+    arr.push({ ...prepromote, name: `${i + 1}`, baseStats: stat });
+  }
   return arr;
 }

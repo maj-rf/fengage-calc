@@ -58,7 +58,7 @@ export const columns: ColumnDef<BaseData>[] = cols.map((col) => {
   return {
     accessorKey: col.accessorKey,
     header: ({ column }) => {
-      return (
+      return column.getCanSort() ? (
         <Button
           size="xs"
           variant="ghost"
@@ -68,6 +68,8 @@ export const columns: ColumnDef<BaseData>[] = cols.map((col) => {
           {col.header}
           <HugeiconsIcon icon={ArrowUpDown} className="size-3" />
         </Button>
+      ) : (
+        <div className="px-2 text-xs">{col.header}</div>
       );
     },
   };
