@@ -52,7 +52,7 @@ export const AverageSection = ({ characterData, classData }: { characterData: Ch
   };
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-2">
       <div className="mx-auto w-full flex flex-col items-center justify-center gap-2">
         <SelectDropdown
           currentChar={currentChar}

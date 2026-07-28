@@ -45,7 +45,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <section>
       {pathname !== '/' && (
-        <div className="flex items-center mb-4 w-full">
+        <div className="flex items-center mb-2 w-full">
           <Input
             placeholder="Filter by name..."
             value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
@@ -54,31 +54,34 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           />
         </div>
       )}
-
-      <div className="rounded-sm overflow-hidden">
-        <Table className="bg-background">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead
-                      key={header.id}
-                      className={cn(
-                        'text-background bg-foreground px-0',
-                        header.index === 0 ? 'text-left sticky left-0' : 'text-center',
-                      )}
-                    >
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+      {table.getRowModel().rows.length === 0 ? (
+        <div className="flex items-center justify-center text-center bg-black text-white p-2 rounded-2xl">
+          No result.
+        </div>
+      ) : (
+        <div className="rounded-sm overflow-hidden">
+          <Table className="bg-background">
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead
+                        key={header.id}
+                        className={cn(
+                          'text-background bg-foreground px-0',
+                          header.index === 0 ? 'text-left sticky left-0' : 'text-center',
+                        )}
+                      >
+                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'} className="group">
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -92,17 +95,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     </TableCell>
                   ))}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
     </section>
   );
 }

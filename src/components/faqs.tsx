@@ -7,22 +7,22 @@ const items = [
   {
     value: 'item-1',
     trigger: 'How do I use the tool?',
-    content: `Pick any combination of character and class in-game using the dropdowns and the calculator will do the magic.
-       Click Characters, Classes, or Average to navigate through each page.
-       Click Fengage Calc / the icon to go back home.`,
+    content: `- Home Page: Pick any combination of character and class in-game using the dropdowns and the calculator will do the magic.
+      - Characters & Classes Page: Show Character and Class Data.
+      - Average Page: Show Average Stats for Base Class and/or Promotion Class`,
   },
   {
     value: 'item-2',
     trigger: 'What are Total, Starsphere, and Max Stats?',
-    content: `TOTAL is the character + class growths. 
-       Add 15% to every stat for the STARSPHERE. 
-       MAX STATS is the highest possible attainable value for each stat.
+    content: `-TOTAL: the character + class growths. 
+       -STARSPHERE: value after adding the 15% bonus to each stat. 
+       -STAT CAPS: the highest possible attainable value for each stat.
        Note: Jean's Expertise bonuses are already applied when Jean is selected.`,
   },
   {
     value: 'item-3',
     trigger: 'What are the abbreviations like M or Ca?',
-    content: `Class Types give different units a distinct combat styles. Each type can give different bonuses like +1 MOV for Cavalry or double stat-boosts from terrain for Covert.
+    content: `Class Types give different units distinct combat styles. Depending on the type, you gain bonuses like +1 MOV for Cavalry or 2x stat-boosts from terrain for Covert.
     
     Class Types: Backup(B), Covert(C), Cavalry(Ca), Mystical(M), Flying(F), Qi Adept(Q), Dragon(D), Armor(A). 
       Special Units: Rafal(R), Nel(N)`,
@@ -32,8 +32,8 @@ const items = [
 export function Faqs() {
   return (
     <section className="mt-8 bg-background/90 p-2 rounded-sm">
-      <h1 className="font-bold text-md">FAQs</h1>
-      <Accordion multiple className="w-full">
+      <h1 className="font-bold text-md px-1">FAQs</h1>
+      <Accordion className="w-full">
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
             <AccordionTrigger>{item.trigger}</AccordionTrigger>

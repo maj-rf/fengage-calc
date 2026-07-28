@@ -23,29 +23,33 @@ export function AverageTable<TData, TValue>({ columns, data, label }: DataTableP
     <section>
       <div className="rounded-sm overflow-hidden">
         <div className="w-full bg-foreground text-background py-1 text-sm text-center">{label}</div>
-        <Table className="bg-background">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead
-                      key={header.id}
-                      className={cn(
-                        'text-background bg-foreground text-left text-xs',
-                        header.index === 0 ? ' sticky left-0 pl-4' : '',
-                      )}
-                    >
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+        {table.getRowModel().rows.length === 0 ? (
+          <div className="flex items-center justify-center text-center bg-background text-foreground p-2">
+            No result. Invalid levels.
+          </div>
+        ) : (
+          <Table className="bg-background">
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead
+                        key={header.id}
+                        className={cn(
+                          'text-background bg-foreground text-left text-xs',
+                          header.index === 0 ? ' sticky left-0 pl-4' : '',
+                        )}
+                      >
+                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'} className="group">
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -59,16 +63,10 @@ export function AverageTable<TData, TValue>({ columns, data, label }: DataTableP
                     </TableCell>
                   ))}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableBody>
+          </Table>
+        )}
       </div>
     </section>
   );

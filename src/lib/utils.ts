@@ -116,6 +116,7 @@ export function getPromotionLevelUps(
   promotionBase: Stats,
   to: number,
 ): CharData[] {
+  if (!prepromote) return [];
   const arr = [];
   const base = prepromote.baseStats;
   const char = prepromote.growth;

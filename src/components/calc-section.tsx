@@ -26,7 +26,7 @@ export const CalcSection = ({ characterData, classData }: { characterData: CharD
   };
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-2">
       <div className="mx-auto flex w-full flex-row items-center justify-center gap-2">
         <SelectDropdown
           currentChar={currentChar}
