@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Links } from './links';
-
-export const Navbar = () => {
+export const MainNav = () => {
   return (
     <header className="w-full py-2">
       <nav className="flex items-center md:w-3/4 px-2 mx-auto">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Sans, Outfit } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import { Navbar } from '@/components/navbar';
+import { MainNav } from '@/components/main-nav';
 
 const outfitHeading = Outfit({
   subsets: ['latin'],
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn('h-full', 'antialiased', 'font-sans', dmSans.variable, outfitHeading.variable)}>
       <body className="min-h-dvh bg-sommie bg-cover bg-no-repeat bg-fixed">
-        <Navbar />
+        <MainNav />
         <main className="p-2 pt-0 w-full md:max-w-3/4 mx-auto">{children}</main>
       </body>
     </html>
