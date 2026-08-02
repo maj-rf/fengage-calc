@@ -17,6 +17,7 @@ export const Links = () => {
       {links.map((l) => (
         <li key={l.label}>
           <Link
+            prefetch={false}
             href={l.href}
             className={`${buttonVariants({ variant: 'link', size: 'sm' })} ${pathname === l.href ? 'underline decoration-blue-700' : ''}`}
           >

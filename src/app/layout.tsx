@@ -3,6 +3,7 @@ import { DM_Sans, Outfit } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { MainNav } from '@/components/main-nav';
+import { Analytics } from '@vercel/analytics/next';
 
 const outfitHeading = Outfit({
   subsets: ['latin'],
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className="min-h-dvh bg-sommie bg-cover bg-no-repeat bg-fixed">
         <MainNav />
         <main className="p-2 pt-0 w-full md:max-w-3/4 mx-auto">{children}</main>
+        <Analytics />
       </body>
     </html>
   );
