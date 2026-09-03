@@ -9,14 +9,15 @@ const items = [
     trigger: 'How do I use the tool?',
     content: `- Home Page: Pick any combination of character and class in-game using the dropdowns and the calculator will do the magic.
       - Characters & Classes Page: Show Character and Class Data.
-      - Average Page: Show Average Stats for Base Class and/or Promotion Class`,
+      - Average Page: Show Average Stats for Base Class and/or Promotion Class
+      Note: Average Page is still in development, some computations can be wrong especially for Characters in Special Class.`,
   },
   {
     value: 'item-2',
     trigger: 'What are Total, Starsphere, and Max Stats?',
     content: `-TOTAL: the character + class growths. 
        -STARSPHERE: value after adding the 15% bonus to each stat. 
-       -STAT CAPS: the highest possible attainable value for each stat.
+       -MAX STATS: the highest possible attainable value for each stat.
        Note: Jean's Expertise bonuses are already applied when Jean is selected.`,
   },
   {
@@ -32,11 +33,11 @@ const items = [
 export function Faqs() {
   return (
     <section className="mt-8 bg-background/90 p-2 rounded-sm">
-      <h1 className="font-bold text-md px-1">FAQs</h1>
+      <h1 className="font-heading font-bold text-md px-1">FAQs</h1>
       <Accordion className="w-full">
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
-            <AccordionTrigger>{item.trigger}</AccordionTrigger>
+            <AccordionTrigger className="font-heading">{item.trigger}</AccordionTrigger>
             <AccordionContent className="whitespace-pre-line">{item.content}</AccordionContent>
           </AccordionItem>
         ))}

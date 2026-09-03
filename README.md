@@ -20,6 +20,6 @@ Version 4.0
 ## Running Project Locally & Contributions
 
 1. Fork and clone the repository.
-2. `npm install` on project directory.
-3. `npm run dev` to start local development.
+2. `pnpm install` on project directory.
+3. `pnpm dev` to start local development.
 4. Make changes and create a pull request.
